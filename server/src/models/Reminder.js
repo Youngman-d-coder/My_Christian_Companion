@@ -35,4 +35,8 @@ const reminderSchema = new mongoose.Schema({
   }
 });
 
+// Indexes for better query performance
+reminderSchema.index({ user: 1, time: 1 }); // Compound index for user reminders by time
+reminderSchema.index({ user: 1, enabled: 1 }); // For fetching active reminders
+
 module.exports = mongoose.model('Reminder', reminderSchema);

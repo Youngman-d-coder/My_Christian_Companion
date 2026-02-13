@@ -60,4 +60,8 @@ const userSchema = new mongoose.Schema({
   }
 });
 
+// Indexes for better query performance
+userSchema.index({ email: 1 }); // Already unique, but explicit
+userSchema.index({ createdAt: -1 }); // For sorting users by creation date
+
 module.exports = mongoose.model('User', userSchema);
