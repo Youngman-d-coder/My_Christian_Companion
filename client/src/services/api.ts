@@ -2,6 +2,9 @@ import axios from 'axios';
 import type {
   User,
   Reminder,
+  Hymn,
+  HymnLibrary,
+  HymnCategory,
   BibleTranslation,
   BibleChapter,
   AuthResponse,
@@ -10,6 +13,7 @@ import type {
   Bookmark,
   SaintSummary,
   Saint
+  DailyContent
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
@@ -107,6 +111,29 @@ export const prayersAPI = {
   }
 };
 
+// Hymns API
+export const hymnsAPI = {
+  getAll: async (): Promise<HymnLibrary> => {
+    const { data } = await api.get('/hymns');
+    return data;
+  },
+
+  getByCategory: async (category: string): Promise<HymnCategory> => {
+    const { data } = await api.get(`/hymns/category/${category}`);
+    return data;
+  },
+
+  search: async (query: string): Promise<Hymn[]> => {
+    const { data } = await api.get('/hymns/search', { params: { q: query } });
+    return data;
+  },
+
+  getFeatured: async (): Promise<Hymn[]> => {
+    const { data } = await api.get('/hymns/featured');
+    return data;
+  }
+};
+
 // Bible API
 export const bibleAPI = {
   getTranslations: async (): Promise<BibleTranslation[]> => {
@@ -139,6 +166,13 @@ export const saintsAPI = {
 
   getById: async (id: string): Promise<Saint> => {
     const { data } = await api.get<Saint>(`/saints/${id}`);
+// Daily Content API
+export const dailyAPI = {
+  getDailyContent: async (denomination?: string, date?: string): Promise<DailyContent> => {
+    const params: Record<string, string> = {};
+    if (denomination) params.denomination = denomination;
+    if (date) params.date = date;
+    const { data } = await api.get<DailyContent>('/daily', { params });
     return data;
   }
 };

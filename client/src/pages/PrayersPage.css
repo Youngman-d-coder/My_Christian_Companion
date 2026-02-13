@@ -88,6 +88,10 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .prayer-card:hover {
@@ -127,6 +131,9 @@
   cursor: pointer;
   transition: transform 0.2s;
   text-align: center;
+  border: none;
+  width: 100%;
+  font-family: inherit;
 }
 
 .rosary-card:hover {

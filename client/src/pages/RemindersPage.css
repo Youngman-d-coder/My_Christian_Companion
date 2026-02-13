@@ -244,6 +244,60 @@
   background: #fee;
 }
 
+.delete-confirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.delete-dialog {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.delete-dialog h3 {
+  color: #2d3748;
+  margin: 0 0 1rem;
+}
+
+.delete-dialog p {
+  color: #718096;
+  margin: 0 0 1.5rem;
+  line-height: 1.6;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-confirm-delete {
+  flex: 1;
+  padding: 0.875rem;
+  background: linear-gradient(135deg, #f56565 0%, #c53030 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-confirm-delete:hover {
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   .reminders-header {
     flex-direction: column;
