@@ -3,12 +3,16 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const rateLimit = require('express-rate-limit');
+const compression = require('compression');
 const logger = require('./utils/logger');
 const errorHandler = require('./middleware/errorHandler');
 
 dotenv.config();
 
 const app = express();
+
+// Compression middleware
+app.use(compression());
 
 // Rate limiting middleware
 const limiter = rateLimit({

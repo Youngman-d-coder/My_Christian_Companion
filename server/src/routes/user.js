@@ -53,7 +53,7 @@ router.post('/bookmarks', auth, [
   body('book').trim().notEmpty().withMessage('Book is required'),
   body('chapter').isInt({ min: 1 }).withMessage('Chapter must be a positive integer'),
   body('verse').optional().isInt({ min: 1 }).withMessage('Verse must be a positive integer'),
-  body('text').optional().trim().withMessage('Text must be a string'),
+  body('text').optional().isString().withMessage('Text must be a string'),
   validateRequest
 ], async (req, res) => {
   try {
