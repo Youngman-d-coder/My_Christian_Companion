@@ -77,8 +77,7 @@ router.post('/history', auth, async (req, res) => {
       { 
         $push: { 
           readingHistory: { 
-            book, 
-            chapter,
+            $each: [{ book, chapter }],
             $slice: -100 // Keep only last 100 entries
           } 
         } 

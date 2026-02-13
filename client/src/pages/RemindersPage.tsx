@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { remindersAPI } from '../services/api';
 import { useAppStore } from '../store';
@@ -21,9 +21,15 @@ export default function RemindersPage() {
 
   const { data: fetchedReminders } = useQuery({
     queryKey: ['reminders'],
-    queryFn: remindersAPI.getAll,
-    onSuccess: (data) => setReminders(data)
+    queryFn: remindersAPI.getAll
   });
+
+  // Update local store when fetched data changes
+  useEffect(() => {
+    if (fetchedReminders) {
+      setReminders(fetchedReminders);
+    }
+  }, [fetchedReminders, setReminders]);
 
   const createMutation = useMutation({
     mutationFn: remindersAPI.create,
