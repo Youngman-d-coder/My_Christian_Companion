@@ -124,20 +124,23 @@ const prayerLibrary = {
         text: 'To thee, the Champion Leader, we thy servants dedicate a feast of victory and of thanksgiving as ones rescued out of sufferings, O Theotokos: but as thou art one with might which is invincible, from all dangers that can be do thou deliver us, that we may cry to thee: Rejoice, O unwedded Bride!'
       }
     ],
-    liturgical: {
-      'lords-prayer-orthodox': {
+    liturgical: [
+      {
+        id: 'lords-prayer-orthodox',
         title: "The Lord's Prayer (Orthodox)",
         text: 'Our Father, Who art in the heavens, hallowed be Thy Name. Thy Kingdom come, Thy will be done, on earth as it is in heaven. Give us this day our daily bread, and forgive us our debts, as we forgive our debtors; and lead us not into temptation, but deliver us from the evil one.'
       },
-      'theotokion': {
+      {
+        id: 'theotokion',
         title: 'Theotokion',
         text: 'It is truly meet to bless thee, O Theotokos, ever blessed and most pure and the Mother of our God. More honorable than the Cherubim and more glorious beyond compare than the Seraphim. Without defilement thou gavest birth to God the Word, true Theotokos, we magnify thee.'
       },
-      'doxology': {
+      {
+        id: 'doxology',
         title: 'Glory to God in the Highest',
         text: 'Glory to God in the highest, and on earth peace, good will among men. We praise Thee, we bless Thee, we worship Thee, we glorify Thee, we give thanks to Thee for Thy great glory. O Lord, heavenly King, God the Father Almighty; O Lord, the only-begotten Son, Jesus Christ; and O Holy Spirit. O Lord God, Lamb of God, Son of the Father, Who takest away the sin of the world, have mercy on us, Thou Who takest away the sins of the world. Receive our prayer, Thou Who sittest at the right hand of the Father, and have mercy on us. For Thou only art holy, Thou only art the Lord, O Jesus Christ, to the Glory of God the Father. Amen.'
       }
-    }
+    ]
   },
   common: [
     {
