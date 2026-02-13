@@ -1,20 +1,8 @@
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { hymnsAPI } from '../services/api';
+import type { Hymn } from '../types';
 import './HymnsPage.css';
-
-interface Hymn {
-  id: string;
-  title: string;
-  author: string;
-  year: number;
-  denomination: string;
-  category: string;
-  youtubeLink?: string;
-  lyricsLink?: string;
-  firstLine: string;
-  description: string;
-}
 
 export default function HymnsPage() {
   const [selectedCategory, setSelectedCategory] = useState('traditional');
