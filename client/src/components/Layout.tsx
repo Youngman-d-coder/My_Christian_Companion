@@ -44,11 +44,10 @@ export default function Layout() {
             >
               Prayers
             </Link>
-            <Link 
-              to="/reminders" 
-              className={location.pathname === '/reminders' ? 'active' : ''}
-              aria-current={location.pathname === '/reminders' ? 'page' : undefined}
-            >
+            <Link to="/hymns" className={location.pathname === '/hymns' ? 'active' : ''}>
+              Hymns
+            </Link>
+            <Link to="/reminders" className={location.pathname === '/reminders' ? 'active' : ''}>
               Reminders
             </Link>
             <Link 

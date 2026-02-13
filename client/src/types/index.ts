@@ -45,6 +45,27 @@ export interface Prayer {
   reference?: string;
 }
 
+export interface Hymn {
+  id: string;
+  title: string;
+  author: string;
+  year: number;
+  denomination: string;
+  category: string;
+  youtubeLink?: string;
+  lyricsLink?: string;
+  firstLine: string;
+  description: string;
+}
+
+export interface HymnCategory {
+  [subCategory: string]: Hymn[];
+}
+
+export interface HymnLibrary {
+  [category: string]: HymnCategory;
+}
+
 export interface BibleTranslation {
   id: string;
   name: string;
@@ -78,4 +99,24 @@ export interface RegisterCredentials {
   password: string;
   name: string;
   denomination?: string;
+}
+
+export interface DailyContent {
+  date: string;
+  denomination: string;
+  liturgicalInfo: {
+    season: string;
+    color: string;
+    description: string;
+    focus: string;
+    feast: {
+      name: string;
+      type: string;
+    } | null;
+  };
+  verse: {
+    text: string;
+    reference: string;
+  };
+  quote: string;
 }
