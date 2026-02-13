@@ -2,13 +2,14 @@ import axios from 'axios';
 import type {
   User,
   Reminder,
-  Prayer,
   BibleTranslation,
   BibleChapter,
   AuthResponse,
   LoginCredentials,
   RegisterCredentials,
-  Bookmark
+  Bookmark,
+  SaintSummary,
+  Saint
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
@@ -95,12 +96,12 @@ export const remindersAPI = {
 
 // Prayers API
 export const prayersAPI = {
-  getAll: async (): Promise<Record<string, any>> => {
+  getAll: async (): Promise<Record<string, unknown>> => {
     const { data } = await api.get('/prayers');
     return data;
   },
 
-  getByDenomination: async (denomination: string): Promise<any> => {
+  getByDenomination: async (denomination: string): Promise<Record<string, unknown>> => {
     const { data } = await api.get(`/prayers/${denomination}`);
     return data;
   }
@@ -123,8 +124,21 @@ export const bibleAPI = {
     return data;
   },
 
-  search: async (query: string, translation: string = 'KJV'): Promise<any> => {
+  search: async (query: string, translation: string = 'KJV'): Promise<Record<string, unknown>> => {
     const { data } = await api.get('/bible/search', { params: { query, translation } });
+    return data;
+  }
+};
+
+// Saints API
+export const saintsAPI = {
+  getAll: async (tradition?: string): Promise<SaintSummary[]> => {
+    const { data } = await api.get<SaintSummary[]>('/saints', { params: { tradition } });
+    return data;
+  },
+
+  getById: async (id: string): Promise<Saint> => {
+    const { data } = await api.get<Saint>(`/saints/${id}`);
     return data;
   }
 };

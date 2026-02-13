@@ -1,0 +1,505 @@
+.saints-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.saints-header {
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.saints-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.saints-header p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.saints-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-bar {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  opacity: 0.5;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3.5rem;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: white;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.tradition-filters {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tradition-filter {
+  padding: 0.875rem 1.75rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tradition-filter:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.tradition-filter.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.3);
+}
+
+.filter-icon {
+  font-size: 1.3rem;
+}
+
+.saints-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  min-height: 400px;
+}
+
+.saints-grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.results-count {
+  text-align: center;
+  padding: 0.75rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  color: #4a5568;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+}
+
+.saints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.saint-card {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.saint-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.saint-card-header {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.saint-image {
+  font-size: 4rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.tradition-badge {
+  padding: 0.375rem 0.875rem;
+  color: white;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tradition-badge.large {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.saint-card-body {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.saint-card-body h3 {
+  margin: 0 0 0.5rem;
+  color: #2d3748;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.saint-title {
+  color: #718096;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  min-height: 2.7rem;
+}
+
+.saint-feast-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.feast-icon {
+  font-size: 1rem;
+}
+
+.loading-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #718096;
+}
+
+.loading-spinner {
+  font-size: 3rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.saint-detail {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.back-button {
+  padding: 0.875rem 1.75rem;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.back-button:hover {
+  background: #edf2f7;
+  border-color: #cbd5e0;
+  transform: translateX(-4px);
+}
+
+.saint-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.saint-detail-header {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 16px;
+  border: 2px solid #e2e8f0;
+}
+
+.saint-detail-image {
+  font-size: 6rem;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+.saint-detail-title {
+  flex: 1;
+}
+
+.saint-detail-title h1 {
+  margin: 0 0 0.5rem;
+  color: #2d3748;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.saint-detail-subtitle {
+  margin: 0 0 1.25rem;
+  color: #4a5568;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.saint-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.feast-day-badge {
+  padding: 0.625rem 1.25rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  font-weight: 700;
+  color: #4a5568;
+  font-size: 0.875rem;
+}
+
+.saint-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.info-card {
+  padding: 1.5rem;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.info-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+}
+
+.info-card h3 {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.info-card p {
+  margin: 0;
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.biography-section {
+  padding: 2rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-left: 6px solid #667eea;
+  border-radius: 12px;
+}
+
+.biography-section h2 {
+  margin: 0 0 1.5rem;
+  color: #2d3748;
+  font-size: 1.75rem;
+}
+
+.biography-content {
+  color: #2d3748;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.biography-content p {
+  margin: 0 0 1.25rem;
+  text-align: justify;
+}
+
+.biography-content p:last-child {
+  margin-bottom: 0;
+}
+
+.attributes-section {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fef5e7 0%, #fdebd0 100%);
+  border: 2px solid #f5ddb8;
+  border-radius: 12px;
+}
+
+.attributes-section h3 {
+  margin: 0 0 0.75rem;
+  color: #744210;
+  font-size: 1.125rem;
+}
+
+.attributes-text {
+  margin: 0;
+  color: #856404;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .saints-header h1 {
+    font-size: 2rem;
+  }
+
+  .saints-header p {
+    font-size: 1rem;
+  }
+
+  .tradition-filters {
+    flex-direction: column;
+  }
+
+  .tradition-filter {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .saints-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .saint-detail-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .saint-detail-title h1 {
+    font-size: 2rem;
+  }
+
+  .saint-detail-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .saint-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .saint-meta {
+    justify-content: center;
+  }
+
+  .saints-content {
+    padding: 1rem;
+  }
+
+  .biography-content p {
+    text-align: left;
+  }
+}

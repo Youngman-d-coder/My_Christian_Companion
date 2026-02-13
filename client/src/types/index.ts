@@ -79,3 +79,27 @@ export interface RegisterCredentials {
   name: string;
   denomination?: string;
 }
+
+export interface Saint {
+  id: string;
+  name: string;
+  title: string;
+  tradition: 'Catholic' | 'Orthodox' | 'Both';
+  feastDay: string;
+  born: string;
+  died: string;
+  location: string;
+  biography: string;
+  patronage: string;
+  attributes: string;
+  image: string;
+}
+
+export interface SaintSummary {
+  id: string;
+  name: string;
+  title: string;
+  tradition: 'Catholic' | 'Orthodox' | 'Both';
+  feastDay: string;
+  image: string;
+}
