@@ -1,6 +1,6 @@
 # My Christian Companion 🙏✝️
 
-A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featuring Bible reading, prayer resources, and daily reminders across all major Christian denominations.
+A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featuring Bible reading, prayer resources, hymn library, and daily reminders across all major Christian denominations.
 
 ## ✨ Features
 
@@ -17,6 +17,14 @@ A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featur
 - **Protestant Prayers**: Lord's Prayer, Morning/Evening prayers, Grace
 - **Orthodox Prayers**: Trisagion, Jesus Prayer, morning prayers
 - **Common Prayers**: Serenity Prayer and other universal Christian prayers
+
+### 🎵 Christian Hymns
+- **Comprehensive Collection**: 40+ hymns across all Christian traditions
+- **Multiple Categories**: Traditional, Catholic, Protestant, Orthodox, Contemporary, and Spirituals
+- **Rich History**: Learn about each hymn's author, year, and historical context
+- **Direct Links**: Access YouTube performances and full lyrics for each hymn
+- **Search Functionality**: Find hymns by title, author, or opening line
+- **Featured Hymns**: Quick access to beloved classics like "Amazing Grace" and "How Great Thou Art"
 
 ### ⏰ Prayer Reminders
 - **Smart Notifications**: Never miss your daily prayers
@@ -173,6 +181,12 @@ The app uses JWT (JSON Web Tokens) for secure authentication:
 ### Prayers
 - `GET /api/prayers` - Get all prayers
 - `GET /api/prayers/:denomination` - Get denomination-specific prayers
+
+### Hymns
+- `GET /api/hymns` - Get all hymns
+- `GET /api/hymns/category/:category` - Get hymns by category (traditional, catholic, protestant, orthodox, contemporary, spirituals)
+- `GET /api/hymns/search?q=query` - Search hymns by title, author, or first line
+- `GET /api/hymns/featured` - Get featured/popular hymns
 
 ### Bible
 - `GET /api/bible/translations` - List available translations
