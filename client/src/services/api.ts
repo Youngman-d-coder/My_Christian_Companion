@@ -106,6 +106,29 @@ export const prayersAPI = {
   }
 };
 
+// Hymns API
+export const hymnsAPI = {
+  getAll: async (): Promise<Record<string, any>> => {
+    const { data } = await api.get('/hymns');
+    return data;
+  },
+
+  getByCategory: async (category: string): Promise<any> => {
+    const { data } = await api.get(`/hymns/category/${category}`);
+    return data;
+  },
+
+  search: async (query: string): Promise<any[]> => {
+    const { data } = await api.get('/hymns/search', { params: { q: query } });
+    return data;
+  },
+
+  getFeatured: async (): Promise<any[]> => {
+    const { data } = await api.get('/hymns/featured');
+    return data;
+  }
+};
+
 // Bible API
 export const bibleAPI = {
   getTranslations: async (): Promise<BibleTranslation[]> => {
