@@ -9,6 +9,8 @@ A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featur
 
 **Production-ready with enterprise-grade security, testing, and documentation.**
 
+**🇳🇬 Now with Nigerian Christian support including local language prayers, hymns, and liturgical resources!**
+
 ## ✨ Features
 
 ### 📖 Bible Reader
@@ -20,17 +22,20 @@ A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featur
 
 ### 🙏 Prayer Library
 - **Multi-Denominational**: Catholic, Protestant, Orthodox, and Anglican prayers
+- **Nigerian Language Support**: Prayers in Yoruba, Igbo, and Hausa
 - **Catholic Prayers**: Complete Rosary guide, Angelus, Divine Mercy Chaplet
 - **Protestant Prayers**: Lord's Prayer, Morning/Evening prayers, Grace
 - **Orthodox Prayers**: Trisagion, Jesus Prayer, morning prayers
 - **Common Prayers**: Serenity Prayer and other universal Christian prayers
 
 ### 🎵 Christian Hymns
-- **Comprehensive Collection**: 40+ hymns across all Christian traditions
-- **Multiple Categories**: Traditional, Catholic, Protestant, Orthodox, Contemporary, and Spirituals
+- **Comprehensive Collection**: 60+ hymns across all Christian traditions
+- **Nigerian Hymns**: Traditional and contemporary hymns in Yoruba, Igbo, and Hausa
+- **Multiple Categories**: Traditional, Catholic, Protestant, Orthodox, Contemporary, Spirituals, and Nigerian
 - **Rich History**: Learn about each hymn's author, year, and historical context
 - **Direct Links**: Access YouTube performances and full lyrics for each hymn
 - **Search Functionality**: Find hymns by title, author, or opening line
+- **Language Filtering**: Filter hymns by language (English, Yoruba, Igbo, Hausa)
 - **Featured Hymns**: Quick access to beloved classics like "Amazing Grace" and "How Great Thou Art"
 
 ### ⏰ Prayer Reminders
@@ -41,9 +46,17 @@ A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featur
 
 ### 👤 User Profile
 - **Cloud Sync**: Your data synced across all devices
-- **Preferences**: Customize theme, Bible translation, and notifications
+- **Preferences**: Customize theme, Bible translation, notifications, and language
+- **Language Support**: English, Yoruba, Igbo, Hausa
 - **Bookmarks Management**: View and manage your saved verses
 - **Reading History**: Track your spiritual journey
+
+### 🇳🇬 Nigerian Catholic Resources
+- **Order of Mass**: Complete structure and prayers for Mass celebration
+- **Daily Readings**: Information and sources for daily Mass readings
+- **Sunday Readings**: Lectionary cycle and reading structure
+- **Breviary/Liturgy of the Hours**: Divine Office for prayer throughout the day
+- **Missal Information**: Details about the Roman Missal and Nigerian adaptations
 
 ### 📱 Progressive Web App
 - **Install on Any Device**: Works on iOS, Android, Windows, and Web
@@ -194,12 +207,22 @@ The app uses JWT (JSON Web Tokens) for secure authentication:
 ### Prayers
 - `GET /api/prayers` - Get all prayers
 - `GET /api/prayers/:denomination` - Get denomination-specific prayers
+- `GET /api/prayers/language/:language` - Get prayers by language (yoruba, igbo, hausa, english)
 
 ### Hymns
 - `GET /api/hymns` - Get all hymns
-- `GET /api/hymns/category/:category` - Get hymns by category (traditional, catholic, protestant, orthodox, contemporary, spirituals)
+- `GET /api/hymns/category/:category` - Get hymns by category (traditional, catholic, protestant, orthodox, contemporary, spirituals, nigerian)
 - `GET /api/hymns/search?q=query` - Search hymns by title, author, or first line
 - `GET /api/hymns/featured` - Get featured/popular hymns
+- `GET /api/hymns/language/:language` - Get hymns by language (yoruba, igbo, hausa, english, nigerian pidgin)
+
+### Nigerian Liturgical Resources
+- `GET /api/nigerian` - Get overview of Nigerian resources
+- `GET /api/nigerian/mass/order` - Get Order of Mass
+- `GET /api/nigerian/readings/daily` - Get daily readings information
+- `GET /api/nigerian/readings/sunday` - Get Sunday readings structure
+- `GET /api/nigerian/breviary` - Get Liturgy of the Hours information
+- `GET /api/nigerian/missal` - Get Missal information
 
 ### Bible
 - `GET /api/bible/translations` - List available translations

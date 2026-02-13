@@ -386,6 +386,224 @@ const hymnLibrary = {
         description: 'Poignant spiritual reflecting on Christ\'s crucifixion.'
       }
     ]
+  },
+  nigerian: {
+    yoruba: [
+      {
+        id: 'jesu-l\'oluwa',
+        title: 'Jesu L\'Oluwa (Jesus is Lord)',
+        author: 'Traditional Nigerian',
+        year: 1900,
+        denomination: 'All',
+        category: 'Nigerian - Yoruba',
+        language: 'Yoruba',
+        youtubeLink: 'https://www.youtube.com/results?search_query=jesu+l%27oluwa+yoruba+hymn',
+        lyricsLink: '',
+        firstLine: 'Jesu l\'oluwa, O je k\'a yin O',
+        description: 'Traditional Yoruba hymn proclaiming Jesus as Lord and praising His name.'
+      },
+      {
+        id: 'olorun-agbaye',
+        title: 'Olorun Agbaye (God of the Universe)',
+        author: 'Traditional Nigerian',
+        year: 1920,
+        denomination: 'All',
+        category: 'Nigerian - Yoruba',
+        language: 'Yoruba',
+        youtubeLink: 'https://www.youtube.com/results?search_query=olorun+agbaye+yoruba+hymn',
+        lyricsLink: '',
+        firstLine: 'Olorun agbaye, O to giga julo',
+        description: 'Yoruba praise hymn glorifying God as creator and ruler of the universe.'
+      },
+      {
+        id: 'jesu-fe-mi-lo',
+        title: 'Jesu Fe Mi Lo (Jesus Loves Me)',
+        author: 'Nigerian Adaptation',
+        year: 1950,
+        denomination: 'All',
+        category: 'Nigerian - Yoruba',
+        language: 'Yoruba',
+        youtubeLink: 'https://www.youtube.com/results?search_query=jesu+fe+mi+lo+yoruba',
+        lyricsLink: '',
+        firstLine: 'Jesu fe mi lo, Bibeli so fun mi',
+        description: 'Yoruba version of "Jesus Loves Me", beloved by children and adults.'
+      },
+      {
+        id: 'emi-o-duro-de',
+        title: 'Emi O Duro De (I Will Wait)',
+        author: 'Traditional Nigerian',
+        year: 1940,
+        denomination: 'Catholic',
+        category: 'Nigerian - Yoruba',
+        language: 'Yoruba',
+        youtubeLink: 'https://www.youtube.com/results?search_query=emi+o+duro+de+yoruba+hymn',
+        lyricsLink: '',
+        firstLine: 'Emi o duro de Oluwa mi',
+        description: 'A hymn of patience and trust in God\'s timing.'
+      }
+    ],
+    igbo: [
+      {
+        id: 'jesu-bu-eze',
+        title: 'Jesu Bu Eze (Jesus is King)',
+        author: 'Traditional Nigerian',
+        year: 1910,
+        denomination: 'All',
+        category: 'Nigerian - Igbo',
+        language: 'Igbo',
+        youtubeLink: 'https://www.youtube.com/results?search_query=jesu+bu+eze+igbo+hymn',
+        lyricsLink: '',
+        firstLine: 'Jesu bu eze, Onye nwe anyi',
+        description: 'Traditional Igbo hymn declaring Jesus as King and Lord.'
+      },
+      {
+        id: 'chineke-nna',
+        title: 'Chineke Nna (God the Father)',
+        author: 'Traditional Nigerian',
+        year: 1930,
+        denomination: 'Catholic',
+        category: 'Nigerian - Igbo',
+        language: 'Igbo',
+        youtubeLink: 'https://www.youtube.com/results?search_query=chineke+nna+igbo+hymn',
+        lyricsLink: '',
+        firstLine: 'Chineke nna anyi no n\'igwe',
+        description: 'Igbo hymn praising God the Father in heaven.'
+      },
+      {
+        id: 'ka-anyi-kelue',
+        title: 'Ka Anyi Kèlue Chineke (Let Us Praise God)',
+        author: 'Traditional Nigerian',
+        year: 1925,
+        denomination: 'All',
+        category: 'Nigerian - Igbo',
+        language: 'Igbo',
+        youtubeLink: 'https://www.youtube.com/results?search_query=ka+anyi+kelue+chineke+igbo',
+        lyricsLink: '',
+        firstLine: 'Ka anyi kelue Chineke, Onye okike',
+        description: 'Joyful Igbo hymn calling believers to praise God the Creator.'
+      },
+      {
+        id: 'bia-kwere-ekwe',
+        title: 'Bia Kwere Ekwe (Come Believe)',
+        author: 'Traditional Nigerian',
+        year: 1935,
+        denomination: 'Protestant',
+        category: 'Nigerian - Igbo',
+        language: 'Igbo',
+        youtubeLink: 'https://www.youtube.com/results?search_query=bia+kwere+ekwe+igbo+hymn',
+        lyricsLink: '',
+        firstLine: 'Bia kwere ekwe na Jesu Kristi',
+        description: 'Evangelistic hymn inviting people to believe in Jesus Christ.'
+      }
+    ],
+    hausa: [
+      {
+        id: 'yesu-ne-ubangiji',
+        title: 'Yesu Ne Ubangiji (Jesus is Lord)',
+        author: 'Traditional Nigerian',
+        year: 1920,
+        denomination: 'All',
+        category: 'Nigerian - Hausa',
+        language: 'Hausa',
+        youtubeLink: 'https://www.youtube.com/results?search_query=yesu+ne+ubangiji+hausa+hymn',
+        lyricsLink: '',
+        firstLine: 'Yesu ne Ubangiji, Shi ne Sarki',
+        description: 'Traditional Hausa hymn proclaiming Jesus as Lord and King.'
+      },
+      {
+        id: 'allah-ya-yarda',
+        title: 'Allah Ya Yarda (God Has Blessed)',
+        author: 'Traditional Nigerian',
+        year: 1940,
+        denomination: 'All',
+        category: 'Nigerian - Hausa',
+        language: 'Hausa',
+        youtubeLink: 'https://www.youtube.com/results?search_query=allah+ya+yarda+hausa+christian',
+        lyricsLink: '',
+        firstLine: 'Allah ya yarda da mu',
+        description: 'Hausa hymn of thanksgiving for God\'s blessings and grace.'
+      },
+      {
+        id: 'mu-yi-godiya',
+        title: 'Mu Yi Godiya (Let Us Give Thanks)',
+        author: 'Traditional Nigerian',
+        year: 1945,
+        denomination: 'All',
+        category: 'Nigerian - Hausa',
+        language: 'Hausa',
+        youtubeLink: 'https://www.youtube.com/results?search_query=mu+yi+godiya+hausa+hymn',
+        lyricsLink: '',
+        firstLine: 'Mu yi godiya ga Ubangiji',
+        description: 'Hausa hymn of gratitude and thanksgiving to the Lord.'
+      }
+    ],
+    contemporary: [
+      {
+        id: 'baba-god',
+        title: 'Baba God (Father God)',
+        author: 'Nigerian Contemporary',
+        year: 2010,
+        denomination: 'All',
+        category: 'Nigerian Contemporary',
+        language: 'Nigerian Pidgin',
+        youtubeLink: 'https://www.youtube.com/results?search_query=baba+god+nigerian+gospel',
+        lyricsLink: '',
+        firstLine: 'Baba God, I hail You o',
+        description: 'Modern Nigerian gospel song in pidgin English praising God.'
+      },
+      {
+        id: 'excess-love',
+        title: 'Excess Love',
+        author: 'Mercy Chinwo',
+        year: 2018,
+        denomination: 'All',
+        category: 'Nigerian Contemporary',
+        language: 'English/Igbo',
+        youtubeLink: 'https://www.youtube.com/watch?v=ty3317Gs35c',
+        lyricsLink: '',
+        firstLine: 'Baby mo, baby mo, Jesus Your baby mo',
+        description: 'Popular Nigerian contemporary worship song by Mercy Chinwo about God\'s love.'
+      },
+      {
+        id: 'you-are-great',
+        title: 'You Are Great (O Ga Eme)',
+        author: 'Steve Crown',
+        year: 2016,
+        denomination: 'All',
+        category: 'Nigerian Contemporary',
+        language: 'English/Igbo',
+        youtubeLink: 'https://www.youtube.com/watch?v=xN_TQBo8SXg',
+        lyricsLink: '',
+        firstLine: 'You are great, yes You are',
+        description: 'Powerful Nigerian worship anthem declaring God\'s greatness.'
+      },
+      {
+        id: 'ekwueme',
+        title: 'Ekwueme (The One Who Says and Does)',
+        author: 'Prospa Ochimana ft. Osinachi Nwachukwu',
+        year: 2018,
+        denomination: 'All',
+        category: 'Nigerian Contemporary',
+        language: 'Igbo/English',
+        youtubeLink: 'https://www.youtube.com/watch?v=HN5KpGqsP6I',
+        lyricsLink: '',
+        firstLine: 'Ekwueme, Ekwueme',
+        description: 'Viral Nigerian worship song praising God as the faithful One who says and does.'
+      },
+      {
+        id: 'nara',
+        title: 'Nara Ekele (Receive Praise)',
+        author: 'Tim Godfrey',
+        year: 2019,
+        denomination: 'All',
+        category: 'Nigerian Contemporary',
+        language: 'Igbo/English',
+        youtubeLink: 'https://www.youtube.com/watch?v=fIHjh9vMCxU',
+        lyricsLink: '',
+        firstLine: 'Nara, nara ekele mo',
+        description: 'Energetic Nigerian praise song offering worship to God.'
+      }
+    ]
   }
 };
 
@@ -450,6 +668,33 @@ router.get('/featured', (req, res) => {
   ];
   
   res.json(featured);
+});
+
+// Get hymns by language
+router.get('/language/:language', (req, res) => {
+  const { language } = req.params;
+  const results = [];
+  
+  // Search through all categories and subcategories
+  Object.entries(hymnLibrary).forEach(([categoryKey, category]) => {
+    Object.entries(category).forEach(([subCategoryKey, hymns]) => {
+      hymns.forEach(hymn => {
+        if (hymn.language && hymn.language.toLowerCase() === language.toLowerCase()) {
+          results.push({
+            ...hymn,
+            category: categoryKey,
+            subCategory: subCategoryKey
+          });
+        }
+      });
+    });
+  });
+  
+  if (results.length === 0) {
+    return res.status(404).json({ error: 'No hymns found for the specified language' });
+  }
+  
+  res.json(results);
 });
 
 module.exports = router;

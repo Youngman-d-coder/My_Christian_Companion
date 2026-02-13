@@ -7,6 +7,7 @@ export interface User {
     theme: 'light' | 'dark' | 'auto';
     bibleTranslation: string;
     notificationsEnabled: boolean;
+    language?: 'english' | 'yoruba' | 'igbo' | 'hausa';
   };
   bookmarks: Bookmark[];
   readingHistory: ReadingHistory[];
@@ -43,6 +44,7 @@ export interface Prayer {
   text?: string;
   instructions?: string;
   reference?: string;
+  language?: string;
 }
 
 export interface Hymn {
@@ -56,6 +58,7 @@ export interface Hymn {
   lyricsLink?: string;
   firstLine: string;
   description: string;
+  language?: string;
 }
 
 export interface HymnCategory {
@@ -123,6 +126,8 @@ export interface SaintSummary {
   tradition: 'Catholic' | 'Orthodox' | 'Both';
   feastDay: string;
   image: string;
+}
+
 export interface DailyContent {
   date: string;
   denomination: string;
