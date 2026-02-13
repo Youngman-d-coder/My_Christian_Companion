@@ -117,7 +117,7 @@ On Easter Sunday morning, Mary Magdalene went to the tomb and found it empty. Wh
 
 In both Catholic and Orthodox traditions, Mary Magdalene is venerated as a saint and example of repentance, devotion, and evangelization. The Eastern tradition holds that she traveled to Ephesus with the Virgin Mary and St. John, and later to Rome where she met Emperor Tiberius.
 
-She is often depicted with a red egg, symbolizing the resurrection. According to tradition, when she met the emperor and proclaimed "Christ is Risen," he questioned how this could be. She held up an egg and said, "just as this egg is not alive, Christ's tomb was not alive." The egg then turned red, confirming her testimony.`,
+She is often depicted with a red egg, symbolizing the resurrection. According to tradition, when she met the emperor and proclaimed "Christ is Risen," he questioned how this could be. She held up an egg and said, "just as this egg will bring forth life, so Christ rose from the tomb." The egg then miraculously turned red in her hand, confirming the truth of the resurrection.`,
     patronage: 'Converts, penitent women, perfumers, pharmacists',
     attributes: 'Red egg, alabaster jar of ointment, long hair',
     image: '🥚'
