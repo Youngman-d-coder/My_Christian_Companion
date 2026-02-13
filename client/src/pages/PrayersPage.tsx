@@ -4,9 +4,15 @@ import { prayersAPI } from '../services/api';
 import { useAuthStore } from '../store';
 import './PrayersPage.css';
 
+type DenominationType = 'catholic' | 'protestant' | 'orthodox' | 'common';
+
 export default function PrayersPage() {
   const user = useAuthStore((state) => state.user);
-  const [selectedDenomination, setSelectedDenomination] = useState(user?.denomination || 'catholic');
+  const [selectedDenomination, setSelectedDenomination] = useState<DenominationType>(
+    (user?.denomination === 'catholic' || user?.denomination === 'protestant' || user?.denomination === 'orthodox') 
+      ? user.denomination 
+      : 'catholic'
+  );
   const [selectedPrayer, setSelectedPrayer] = useState<any>(null);
 
   const { data: allPrayers } = useQuery({
@@ -19,7 +25,7 @@ export default function PrayersPage() {
     queryFn: () => prayersAPI.getByDenomination(selectedDenomination)
   });
 
-  const denominations = [
+  const denominations: { id: DenominationType; name: string; icon: string }[] = [
     { id: 'catholic', name: 'Catholic', icon: '✝️' },
     { id: 'protestant', name: 'Protestant', icon: '✝️' },
     { id: 'orthodox', name: 'Orthodox', icon: '☦️' },
