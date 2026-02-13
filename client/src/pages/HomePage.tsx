@@ -2,11 +2,12 @@ import { useAuthStore } from '../store';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { dailyAPI } from '../services/api';
+import type { DailyContent } from '../types';
 import './HomePage.css';
 
 export default function HomePage() {
   const user = useAuthStore((state) => state.user);
-  const [dailyContent, setDailyContent] = useState<any>(null);
+  const [dailyContent, setDailyContent] = useState<DailyContent | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
