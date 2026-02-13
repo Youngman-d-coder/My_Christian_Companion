@@ -106,8 +106,7 @@ const prayerLibrary = {
       {
         id: 'prayer-of-st-ephraim',
         title: 'Prayer of St. Ephraim the Syrian',
-        text: 'O Lord and Master of my life, take from me the spirit of sloth, despair, lust of power, and idle talk.\n\nBut give rather the spirit of chastity, humility, patience, and love to Thy servant.\n\nYea, O Lord and King, grant me to see my own sins and not to judge my brother, for blessed art Thou unto ages of ages. Amen.',
-        category: 'lenten'
+        text: 'O Lord and Master of my life, take from me the spirit of sloth, despair, lust of power, and idle talk.\n\nBut give rather the spirit of chastity, humility, patience, and love to Thy servant.\n\nYea, O Lord and King, grant me to see my own sins and not to judge my brother, for blessed art Thou unto ages of ages. Amen.'
       },
       {
         id: 'prayer-to-theotokos',
