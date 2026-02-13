@@ -116,6 +116,8 @@ A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featur
 - **Axios** - HTTP client
 - **Vite PWA Plugin** - Progressive Web App features
 - **Workbox** - Service worker & offline caching
+- **Vitest** - Testing framework
+- **React Testing Library** - Component testing
 
 ### Backend
 - **Node.js** with Express
@@ -123,6 +125,8 @@ A comprehensive Progressive Web App (PWA) for Christian spiritual growth, featur
 - **JWT** - Authentication
 - **bcryptjs** - Password hashing
 - **CORS** - Cross-origin support
+- **Jest** - Testing framework
+- **Supertest** - HTTP testing
 
 ## 📁 Project Structure
 
@@ -134,6 +138,7 @@ My_Christian_Companion/
 │   │   ├── pages/         # Page components
 │   │   ├── services/      # API services
 │   │   ├── store/         # State management
+│   │   ├── test/          # Test utilities
 │   │   ├── types/         # TypeScript types
 │   │   └── utils/         # Utility functions
 │   ├── public/            # Static assets
@@ -145,6 +150,7 @@ My_Christian_Companion/
     │   ├── routes/        # API routes
     │   ├── middleware/    # Express middleware
     │   └── index.js       # Server entry point
+    ├── __tests__/         # Test files
     └── package.json
 
 ```
@@ -184,6 +190,47 @@ The app uses JWT (JSON Web Tokens) for secure authentication:
 - `POST /api/reminders` - Create reminder
 - `PUT /api/reminders/:id` - Update reminder
 - `DELETE /api/reminders/:id` - Delete reminder
+
+## 🧪 Testing
+
+This project includes comprehensive test suites for both frontend and backend.
+
+### Running Tests
+
+**Backend Tests (Jest)**
+```bash
+cd server
+npm test                 # Run all tests
+npm run test:watch      # Run tests in watch mode
+npm run test:coverage   # Run tests with coverage report
+```
+
+**Frontend Tests (Vitest)**
+```bash
+cd client
+npm test                 # Run all tests
+npm run test:ui         # Run tests with interactive UI
+npm run test:coverage   # Run tests with coverage report
+```
+
+### Test Coverage
+
+**Backend:**
+- API endpoint tests for health check, prayers, Bible translations
+- 12 tests covering core API functionality
+
+**Frontend:**
+- Component tests for HomePage
+- API configuration tests
+- 7 tests covering core UI components
+
+### Writing Tests
+
+**Backend:**
+Tests are located in `server/__tests__/` and use Jest with Supertest for API testing.
+
+**Frontend:**
+Tests are located alongside components with `.test.tsx` extension and use Vitest with React Testing Library.
 
 ## 🎨 Customization
 
