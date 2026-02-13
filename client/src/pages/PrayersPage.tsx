@@ -4,9 +4,15 @@ import { prayersAPI } from '../services/api';
 import { useAuthStore } from '../store';
 import './PrayersPage.css';
 
+type DenominationType = 'catholic' | 'protestant' | 'orthodox' | 'common';
+
 export default function PrayersPage() {
   const user = useAuthStore((state) => state.user);
-  const [selectedDenomination, setSelectedDenomination] = useState(user?.denomination || 'catholic');
+  const [selectedDenomination, setSelectedDenomination] = useState<DenominationType>(
+    (user?.denomination === 'catholic' || user?.denomination === 'protestant' || user?.denomination === 'orthodox') 
+      ? user.denomination 
+      : 'catholic'
+  );
   const [selectedPrayer, setSelectedPrayer] = useState<any>(null);
 
   const { data: allPrayers } = useQuery({
@@ -19,7 +25,7 @@ export default function PrayersPage() {
     queryFn: () => prayersAPI.getByDenomination(selectedDenomination)
   });
 
-  const denominations = [
+  const denominations: { id: DenominationType; name: string; icon: string }[] = [
     { id: 'catholic', name: 'Catholic', icon: '✝️' },
     { id: 'protestant', name: 'Protestant', icon: '✝️' },
     { id: 'orthodox', name: 'Orthodox', icon: '☦️' },
@@ -69,6 +75,33 @@ export default function PrayersPage() {
                 <div className="prayer-cards">
                   {denomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
                 </div>
+
+                {denomPrayers.saints && (
+                  <>
+                    <h2>Prayers to Saints</h2>
+                    <div className="prayer-cards">
+                      {denomPrayers.saints.map((prayer: any) => renderPrayerCard(prayer))}
+                    </div>
+                  </>
+                )}
+
+                {denomPrayers.litanies && (
+                  <>
+                    <h2>Litanies</h2>
+                    <div className="prayer-cards">
+                      {denomPrayers.litanies.map((prayer: any) => renderPrayerCard(prayer))}
+                    </div>
+                  </>
+                )}
+
+                {denomPrayers.devotional && (
+                  <>
+                    <h2>Devotional Prayers</h2>
+                    <div className="prayer-cards">
+                      {denomPrayers.devotional.map((prayer: any) => renderPrayerCard(prayer))}
+                    </div>
+                  </>
+                )}
 
                 {denomPrayers.rosary && (
                   <>

@@ -45,6 +45,27 @@ export interface Prayer {
   reference?: string;
 }
 
+export interface Hymn {
+  id: string;
+  title: string;
+  author: string;
+  year: number;
+  denomination: string;
+  category: string;
+  youtubeLink?: string;
+  lyricsLink?: string;
+  firstLine: string;
+  description: string;
+}
+
+export interface HymnCategory {
+  [subCategory: string]: Hymn[];
+}
+
+export interface HymnLibrary {
+  [category: string]: HymnCategory;
+}
+
 export interface BibleTranslation {
   id: string;
   name: string;

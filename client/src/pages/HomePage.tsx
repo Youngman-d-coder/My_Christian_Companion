@@ -46,6 +46,7 @@ export default function HomePage() {
   const quickActions = [
     { title: 'Read Bible', icon: '📖', link: '/bible', color: '#4299e1' },
     { title: 'Daily Prayers', icon: '🙏', link: '/prayers', color: '#48bb78' },
+    { title: 'Hymns', icon: '🎵', link: '/hymns', color: '#ed64a6' },
     { title: 'Set Reminders', icon: '⏰', link: '/reminders', color: '#ed8936' },
     { title: 'My Profile', icon: '👤', link: '/profile', color: '#9f7aea' }
   ];
@@ -173,6 +174,10 @@ export default function HomePage() {
           <div className="feature-item">
             <h3>🙏 Prayer Library</h3>
             <p>Comprehensive prayers for all Christian denominations</p>
+          </div>
+          <div className="feature-item">
+            <h3>🎵 Christian Hymns</h3>
+            <p>Traditional and contemporary hymns with links to performances</p>
           </div>
           <div className="feature-item">
             <h3>⏰ Smart Reminders</h3>

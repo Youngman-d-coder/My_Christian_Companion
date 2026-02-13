@@ -2,6 +2,9 @@ import axios from 'axios';
 import type {
   User,
   Reminder,
+  Hymn,
+  HymnLibrary,
+  HymnCategory,
   BibleTranslation,
   BibleChapter,
   AuthResponse,
@@ -95,13 +98,36 @@ export const remindersAPI = {
 
 // Prayers API
 export const prayersAPI = {
-  getAll: async (): Promise<Record<string, any>> => {
+  getAll: async (): Promise<Record<string, unknown>> => {
     const { data } = await api.get('/prayers');
     return data;
   },
 
-  getByDenomination: async (denomination: string): Promise<any> => {
+  getByDenomination: async (denomination: string): Promise<Record<string, unknown>> => {
     const { data } = await api.get(`/prayers/${denomination}`);
+    return data;
+  }
+};
+
+// Hymns API
+export const hymnsAPI = {
+  getAll: async (): Promise<HymnLibrary> => {
+    const { data } = await api.get('/hymns');
+    return data;
+  },
+
+  getByCategory: async (category: string): Promise<HymnCategory> => {
+    const { data } = await api.get(`/hymns/category/${category}`);
+    return data;
+  },
+
+  search: async (query: string): Promise<Hymn[]> => {
+    const { data } = await api.get('/hymns/search', { params: { q: query } });
+    return data;
+  },
+
+  getFeatured: async (): Promise<Hymn[]> => {
+    const { data } = await api.get('/hymns/featured');
     return data;
   }
 };
