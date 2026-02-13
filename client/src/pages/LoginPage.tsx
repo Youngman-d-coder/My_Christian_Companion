@@ -31,10 +31,10 @@ export default function LoginPage() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1 className="auth-title"><span aria-label="Cross symbol">✝</span> Christian Companion</h1>
+        <h1 className="auth-title"><span aria-hidden="true">✝</span> Christian Companion</h1>
         <h2 className="auth-subtitle">Welcome Back</h2>
         
-        {error && <div className="error-message" role="alert" aria-live="assertive">{error}</div>}
+        {error && <div id="error-message" className="error-message" role="alert" aria-live="assertive">{error}</div>}
         
         <form onSubmit={handleSubmit} className="auth-form" aria-label="Login form">
           <div className="form-group">

@@ -82,7 +82,7 @@ export default function BiblePage() {
         <aside className="bible-sidebar" aria-label="Bible book navigation">
           <div className="book-selector">
             <h3>Old Testament</h3>
-            <div className="book-list" role="list">
+            <div className="book-list">
               {books?.oldTestament.map((book) => (
                 <button
                   key={book}
@@ -92,8 +92,7 @@ export default function BiblePage() {
                     setSelectedChapter(1);
                   }}
                   aria-label={`Read ${book}`}
-                  aria-current={selectedBook === book ? 'true' : undefined}
-                  role="listitem"
+                  aria-current={selectedBook === book ? true : undefined}
                 >
                   {book}
                 </button>
@@ -101,7 +100,7 @@ export default function BiblePage() {
             </div>
 
             <h3>New Testament</h3>
-            <div className="book-list" role="list">
+            <div className="book-list">
               {books?.newTestament.map((book) => (
                 <button
                   key={book}
@@ -111,8 +110,7 @@ export default function BiblePage() {
                     setSelectedChapter(1);
                   }}
                   aria-label={`Read ${book}`}
-                  aria-current={selectedBook === book ? 'true' : undefined}
-                  role="listitem"
+                  aria-current={selectedBook === book ? true : undefined}
                 >
                   {book}
                 </button>

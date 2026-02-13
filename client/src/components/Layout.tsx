@@ -20,7 +20,7 @@ export default function Layout() {
       <header className="header">
         <div className="header-content">
           <h1 className="logo">
-            <span aria-label="Cross symbol">✝</span> Christian Companion
+            <span aria-hidden="true">✝</span> Christian Companion
           </h1>
           <nav className="nav" aria-label="Main navigation">
             <Link 

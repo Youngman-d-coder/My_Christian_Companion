@@ -42,7 +42,7 @@ export default function HomePage() {
     <div className="home-page">
       <section className="hero-section">
         <h1 className="hero-title">
-          Welcome, {user?.name}! <span aria-label="Cross symbol">✝</span>
+          Welcome, {user?.name}! <span aria-hidden="true">✝</span>
         </h1>
         <p className="hero-subtitle">
           Your spiritual companion for daily devotions, Bible reading, and prayer
