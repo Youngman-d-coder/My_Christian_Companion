@@ -10,6 +10,7 @@ export default function RemindersPage() {
   const { reminders, setReminders } = useAppStore();
   const [showForm, setShowForm] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
   const [formData, setFormData] = useState<Omit<Reminder, '_id'>>({
     title: '',
     description: '',
@@ -91,8 +92,13 @@ export default function RemindersPage() {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm('Are you sure you want to delete this reminder?')) {
-      deleteMutation.mutate(id);
+    setDeleteConfirmId(id);
+  };
+
+  const confirmDelete = () => {
+    if (deleteConfirmId) {
+      deleteMutation.mutate(deleteConfirmId);
+      setDeleteConfirmId(null);
     }
   };
 
@@ -121,10 +127,10 @@ export default function RemindersPage() {
     <div className="reminders-page">
       <div className="reminders-header">
         <div>
-          <h1>⏰ Prayer Reminders</h1>
+          <h1><span aria-hidden="true">⏰</span> Prayer Reminders</h1>
           <p>Never miss your daily prayers</p>
         </div>
-        <button className="btn-add" onClick={() => setShowForm(!showForm)}>
+        <button className="btn-add" onClick={() => setShowForm(!showForm)} aria-label={showForm ? 'Cancel adding reminder' : 'Add new reminder'}>
           {showForm ? '✕ Cancel' : '+ Add Reminder'}
         </button>
       </div>
@@ -135,8 +141,9 @@ export default function RemindersPage() {
             <h3>{editingId ? 'Edit Reminder' : 'New Reminder'}</h3>
 
             <div className="form-group">
-              <label>Title *</label>
+              <label htmlFor="reminder-title">Title *</label>
               <input
+                id="reminder-title"
                 type="text"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
@@ -146,8 +153,9 @@ export default function RemindersPage() {
             </div>
 
             <div className="form-group">
-              <label>Description</label>
+              <label htmlFor="reminder-description">Description</label>
               <textarea
+                id="reminder-description"
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Optional note..."
@@ -156,8 +164,9 @@ export default function RemindersPage() {
             </div>
 
             <div className="form-group">
-              <label>Prayer Type</label>
+              <label htmlFor="prayer-type">Prayer Type</label>
               <select
+                id="prayer-type"
                 value={formData.prayerType}
                 onChange={(e) => setFormData({ ...formData, prayerType: e.target.value as any })}
               >
@@ -170,8 +179,9 @@ export default function RemindersPage() {
             </div>
 
             <div className="form-group">
-              <label>Time *</label>
+              <label htmlFor="reminder-time">Time *</label>
               <input
+                id="reminder-time"
                 type="time"
                 value={formData.time}
                 onChange={(e) => setFormData({ ...formData, time: e.target.value })}
@@ -180,14 +190,16 @@ export default function RemindersPage() {
             </div>
 
             <div className="form-group">
-              <label>Repeat on days</label>
-              <div className="days-selector">
+              <label id="days-label">Repeat on days</label>
+              <div className="days-selector" role="group" aria-labelledby="days-label">
                 {allDays.map((day) => (
                   <button
                     key={day}
                     type="button"
                     className={`day-button ${formData.days.includes(day as any) ? 'active' : ''}`}
                     onClick={() => toggleDay(day)}
+                    aria-label={day}
+                    aria-pressed={formData.days.includes(day as any)}
                   >
                     {day.substring(0, 3).toUpperCase()}
                   </button>
@@ -207,16 +219,29 @@ export default function RemindersPage() {
         </div>
       )}
 
+      {deleteConfirmId && (
+        <div className="delete-confirmation" role="dialog" aria-labelledby="delete-dialog-title" aria-modal="true">
+          <div className="delete-dialog">
+            <h3 id="delete-dialog-title">Delete Reminder?</h3>
+            <p>Are you sure you want to delete this reminder? This action cannot be undone.</p>
+            <div className="dialog-actions">
+              <button className="btn-confirm-delete" onClick={confirmDelete}>Delete</button>
+              <button className="btn-cancel" onClick={() => setDeleteConfirmId(null)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="reminders-list">
         {displayedReminders.length === 0 ? (
           <div className="empty-state">
-            <p>📅 No reminders yet</p>
+            <p><span aria-hidden="true">📅</span> No reminders yet</p>
             <p>Create your first prayer reminder to get started!</p>
           </div>
         ) : (
           displayedReminders.map((reminder) => (
             <div key={reminder._id} className={`reminder-card ${!reminder.enabled ? 'disabled' : ''}`}>
-              <div className="reminder-icon">
+              <div className="reminder-icon" aria-hidden="true">
                 {reminder.prayerType === 'rosary' ? '📿' : 
                  reminder.prayerType === 'morning' ? '🌅' :
                  reminder.prayerType === 'evening' ? '🌙' :
@@ -227,10 +252,10 @@ export default function RemindersPage() {
                 <h3>{reminder.title}</h3>
                 {reminder.description && <p>{reminder.description}</p>}
                 <div className="reminder-details">
-                  <span className="time">🕐 {reminder.time}</span>
+                  <span className="time"><span aria-hidden="true">🕐</span> {reminder.time}</span>
                   {reminder.days.length > 0 && (
                     <span className="days">
-                      📅 {reminder.days.map(d => d.substring(0, 3)).join(', ')}
+                      <span aria-hidden="true">📅</span> {reminder.days.map(d => d.substring(0, 3)).join(', ')}
                     </span>
                   )}
                 </div>
@@ -242,23 +267,23 @@ export default function RemindersPage() {
                     id: reminder._id!, 
                     data: { enabled: !reminder.enabled }
                   })}
-                  title={reminder.enabled ? 'Disable' : 'Enable'}
+                  aria-label={reminder.enabled ? `Disable reminder: ${reminder.title}` : `Enable reminder: ${reminder.title}`}
                 >
-                  {reminder.enabled ? '🔔' : '🔕'}
+                  <span aria-hidden="true">{reminder.enabled ? '🔔' : '🔕'}</span>
                 </button>
                 <button
                   className="btn-icon"
                   onClick={() => handleEdit(reminder)}
-                  title="Edit"
+                  aria-label={`Edit reminder: ${reminder.title}`}
                 >
-                  ✏️
+                  <span aria-hidden="true">✏️</span>
                 </button>
                 <button
                   className="btn-icon delete"
                   onClick={() => handleDelete(reminder._id!)}
-                  title="Delete"
+                  aria-label={`Delete reminder: ${reminder.title}`}
                 >
-                  🗑️
+                  <span aria-hidden="true">🗑️</span>
                 </button>
               </div>
             </div>

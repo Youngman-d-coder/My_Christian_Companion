@@ -31,12 +31,12 @@ export default function LoginPage() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1 className="auth-title">✝ Christian Companion</h1>
+        <h1 className="auth-title"><span aria-label="Cross symbol">✝</span> Christian Companion</h1>
         <h2 className="auth-subtitle">Welcome Back</h2>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && <div className="error-message" role="alert" aria-live="assertive">{error}</div>}
         
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="auth-form" aria-label="Login form">
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
@@ -46,6 +46,8 @@ export default function LoginPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="your@email.com"
+              autoComplete="email"
+              aria-describedby={error ? 'error-message' : undefined}
             />
           </div>
           
@@ -59,10 +61,12 @@ export default function LoginPage() {
               required
               placeholder="••••••••"
               minLength={6}
+              autoComplete="current-password"
+              aria-describedby={error ? 'error-message' : undefined}
             />
           </div>
           
-          <button type="submit" className="btn-primary" disabled={loading}>
+          <button type="submit" className="btn-primary" disabled={loading} aria-busy={loading}>
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
