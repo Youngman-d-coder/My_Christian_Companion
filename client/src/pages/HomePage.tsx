@@ -1,15 +1,55 @@
 import { useAuthStore } from '../store';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { dailyAPI } from '../services/api';
+import type { DailyContent } from '../types';
 import './HomePage.css';
 
 export default function HomePage() {
   const user = useAuthStore((state) => state.user);
+  const [dailyContent, setDailyContent] = useState<DailyContent | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDailyContent = async () => {
+      try {
+        setLoading(true);
+        const content = await dailyAPI.getDailyContent(user?.denomination);
+        setDailyContent(content);
+      } catch (error) {
+        console.error('Error fetching daily content:', error);
+        // Set a complete fallback content if API fails
+        setDailyContent({
+          date: new Date().toISOString(),
+          denomination: user?.denomination || 'other',
+          liturgicalInfo: {
+            season: 'Ordinary Time',
+            color: 'Green',
+            description: 'The regular season of growth in faith',
+            focus: 'Growing in discipleship and Christian living',
+            feast: null
+          },
+          verse: {
+            text: 'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.',
+            reference: 'John 3:16 (NIV)'
+          },
+          quote: 'God is love, and whoever abides in love abides in God, and God abides in him.'
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDailyContent();
+  }, [user?.denomination]);
 
   const quickActions = [
     { title: 'Read Bible', icon: '📖', link: '/bible', color: '#4299e1' },
     { title: 'Daily Prayers', icon: '🙏', link: '/prayers', color: '#48bb78' },
+    { title: 'Saints Gallery', icon: '✨', link: '/saints', color: '#9f7aea' },
+    { title: 'Hymns', icon: '🎵', link: '/hymns', color: '#ed64a6' },
     { title: 'Set Reminders', icon: '⏰', link: '/reminders', color: '#ed8936' },
-    { title: 'My Profile', icon: '👤', link: '/profile', color: '#9f7aea' }
+    { title: 'My Profile', icon: '👤', link: '/profile', color: '#f687b3' }
   ];
 
   const denominationInfo = {
@@ -41,7 +81,9 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero-section">
-        <h1 className="hero-title">Welcome, {user?.name}! ✝</h1>
+        <h1 className="hero-title">
+          Welcome, {user?.name}! <span aria-hidden="true">✝</span>
+        </h1>
         <p className="hero-subtitle">
           Your spiritual companion for daily devotions, Bible reading, and prayer
         </p>
@@ -56,8 +98,9 @@ export default function HomePage() {
               to={action.link}
               className="action-card"
               style={{ borderTopColor: action.color }}
+              aria-label={action.title}
             >
-              <div className="action-icon" style={{ background: action.color }}>
+              <div className="action-icon" style={{ background: action.color }} aria-hidden="true">
                 {action.icon}
               </div>
               <h3>{action.title}</h3>
@@ -85,41 +128,75 @@ export default function HomePage() {
       </section>
 
       <section className="verse-of-day">
-        <h2>Verse of the Day</h2>
-        <div className="verse-card">
-          <p className="verse-text">
-            "For God so loved the world that he gave his one and only Son, that whoever believes in
-            him shall not perish but have eternal life."
-          </p>
-          <p className="verse-reference">— John 3:16 (NIV)</p>
-        </div>
+        <h2>
+          {dailyContent?.liturgicalInfo?.feast
+            ? `${dailyContent.liturgicalInfo.feast.name} - Daily Verse`
+            : dailyContent?.liturgicalInfo?.season
+            ? `${dailyContent.liturgicalInfo.season} - Daily Verse`
+            : 'Verse of the Day'}
+        </h2>
+        {loading ? (
+          <div className="verse-card">
+            <p className="verse-text">Loading...</p>
+          </div>
+        ) : (
+          <>
+            <div className="verse-card">
+              <p className="verse-text">"{dailyContent?.verse?.text}"</p>
+              <p className="verse-reference">— {dailyContent?.verse?.reference}</p>
+            </div>
+            {dailyContent?.liturgicalInfo && (
+              <div className="liturgical-info">
+                <p>
+                  <strong>Liturgical Season:</strong> {dailyContent.liturgicalInfo.season}
+                  {dailyContent.liturgicalInfo.color && (
+                    <span> (Liturgical Color: {dailyContent.liturgicalInfo.color})</span>
+                  )}
+                </p>
+                {dailyContent.liturgicalInfo.description && (
+                  <p><em>{dailyContent.liturgicalInfo.description}</em></p>
+                )}
+              </div>
+            )}
+            {dailyContent?.quote && (
+              <div className="daily-quote">
+                <h3>Spiritual Reflection</h3>
+                <p className="quote-text">{dailyContent.quote}</p>
+              </div>
+            )}
+          </>
+        )}
       </section>
 
       <section className="features-overview">
         <h2>App Features</h2>
         <div className="features-grid">
           <div className="feature-item">
-            <h3>📖 Complete Bible</h3>
+            <h3><span aria-hidden="true">📖</span> Complete Bible</h3>
             <p>Access all Bible translations with offline support</p>
           </div>
           <div className="feature-item">
-            <h3>🙏 Prayer Library</h3>
+            <h3><span aria-hidden="true">🙏</span> Prayer Library</h3>
             <p>Comprehensive prayers for all Christian denominations</p>
+          </div>
+          <div className="feature-item">
+            <h3>🎵 Christian Hymns</h3>
+            <p>Traditional and contemporary hymns with links to performances</p>
           </div>
           <div className="feature-item">
             <h3>⏰ Smart Reminders</h3>
             <p>Never miss your daily prayers and devotions</p>
           </div>
           <div className="feature-item">
-            <h3>☁️ Cloud Sync</h3>
+            <h3><span aria-hidden="true">☁️</span> Cloud Sync</h3>
             <p>Your bookmarks and progress synced across devices</p>
           </div>
           <div className="feature-item">
-            <h3>📱 Works Offline</h3>
+            <h3><span aria-hidden="true">📱</span> Works Offline</h3>
             <p>Full functionality even without internet</p>
           </div>
           <div className="feature-item">
-            <h3>✝️ Multi-Denomination</h3>
+            <h3><span aria-hidden="true">✝️</span> Multi-Denomination</h3>
             <p>Support for Catholic, Protestant, Orthodox, and more</p>
           </div>
         </div>

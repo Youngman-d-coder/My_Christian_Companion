@@ -2,13 +2,18 @@ import axios from 'axios';
 import type {
   User,
   Reminder,
-  Prayer,
+  Hymn,
+  HymnLibrary,
+  HymnCategory,
   BibleTranslation,
   BibleChapter,
   AuthResponse,
   LoginCredentials,
   RegisterCredentials,
-  Bookmark
+  Bookmark,
+  SaintSummary,
+  Saint
+  DailyContent
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
@@ -95,13 +100,36 @@ export const remindersAPI = {
 
 // Prayers API
 export const prayersAPI = {
-  getAll: async (): Promise<Record<string, any>> => {
+  getAll: async (): Promise<Record<string, unknown>> => {
     const { data } = await api.get('/prayers');
     return data;
   },
 
-  getByDenomination: async (denomination: string): Promise<any> => {
+  getByDenomination: async (denomination: string): Promise<Record<string, unknown>> => {
     const { data } = await api.get(`/prayers/${denomination}`);
+    return data;
+  }
+};
+
+// Hymns API
+export const hymnsAPI = {
+  getAll: async (): Promise<HymnLibrary> => {
+    const { data } = await api.get('/hymns');
+    return data;
+  },
+
+  getByCategory: async (category: string): Promise<HymnCategory> => {
+    const { data } = await api.get(`/hymns/category/${category}`);
+    return data;
+  },
+
+  search: async (query: string): Promise<Hymn[]> => {
+    const { data } = await api.get('/hymns/search', { params: { q: query } });
+    return data;
+  },
+
+  getFeatured: async (): Promise<Hymn[]> => {
+    const { data } = await api.get('/hymns/featured');
     return data;
   }
 };
@@ -123,8 +151,28 @@ export const bibleAPI = {
     return data;
   },
 
-  search: async (query: string, translation: string = 'KJV'): Promise<any> => {
+  search: async (query: string, translation: string = 'KJV'): Promise<Record<string, unknown>> => {
     const { data } = await api.get('/bible/search', { params: { query, translation } });
+    return data;
+  }
+};
+
+// Saints API
+export const saintsAPI = {
+  getAll: async (tradition?: string): Promise<SaintSummary[]> => {
+    const { data } = await api.get<SaintSummary[]>('/saints', { params: { tradition } });
+    return data;
+  },
+
+  getById: async (id: string): Promise<Saint> => {
+    const { data } = await api.get<Saint>(`/saints/${id}`);
+// Daily Content API
+export const dailyAPI = {
+  getDailyContent: async (denomination?: string, date?: string): Promise<DailyContent> => {
+    const params: Record<string, string> = {};
+    if (denomination) params.denomination = denomination;
+    if (date) params.date = date;
+    const { data } = await api.get<DailyContent>('/daily', { params });
     return data;
   }
 };
