@@ -1,3 +1,14 @@
+/**
+ * Global Styles for Christian Companion Application
+ * 
+ * Accessibility Features (WCAG 2.1 AA):
+ * - Visible focus indicators for keyboard navigation
+ * - Skip-to-main-content link for screen readers
+ * - Screen reader only utility class (.sr-only)
+ * - High contrast focus styles
+ * - Proper semantic HTML structure
+ */
+
 * {
   box-sizing: border-box;
 }
