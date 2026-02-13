@@ -46,9 +46,10 @@ export default function HomePage() {
   const quickActions = [
     { title: 'Read Bible', icon: '📖', link: '/bible', color: '#4299e1' },
     { title: 'Daily Prayers', icon: '🙏', link: '/prayers', color: '#48bb78' },
+    { title: 'Saints Gallery', icon: '✨', link: '/saints', color: '#9f7aea' },
     { title: 'Hymns', icon: '🎵', link: '/hymns', color: '#ed64a6' },
     { title: 'Set Reminders', icon: '⏰', link: '/reminders', color: '#ed8936' },
-    { title: 'My Profile', icon: '👤', link: '/profile', color: '#9f7aea' }
+    { title: 'My Profile', icon: '👤', link: '/profile', color: '#f687b3' }
   ];
 
   const denominationInfo = {

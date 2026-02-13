@@ -44,6 +44,8 @@ export default function Layout() {
             >
               Prayers
             </Link>
+            <Link to="/saints" className={location.pathname === '/saints' ? 'active' : ''}>
+              Saints
             <Link to="/hymns" className={location.pathname === '/hymns' ? 'active' : ''}>
               Hymns
             </Link>

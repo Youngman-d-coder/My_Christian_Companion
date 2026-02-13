@@ -18,6 +18,7 @@ app.use('/api/hymns', require('./routes/hymns'));
 app.use('/api/reminders', require('./routes/reminders'));
 app.use('/api/bible', require('./routes/bible'));
 app.use('/api/user', require('./routes/user'));
+app.use('/api/saints', require('./routes/saints'));
 app.use('/api/daily', require('./routes/daily'));
 
 // Health check

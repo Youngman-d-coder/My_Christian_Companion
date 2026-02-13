@@ -11,6 +11,8 @@ import type {
   LoginCredentials,
   RegisterCredentials,
   Bookmark,
+  SaintSummary,
+  Saint
   DailyContent
 } from '../types';
 
@@ -149,12 +151,21 @@ export const bibleAPI = {
     return data;
   },
 
-  search: async (query: string, translation: string = 'KJV'): Promise<any> => {
+  search: async (query: string, translation: string = 'KJV'): Promise<Record<string, unknown>> => {
     const { data } = await api.get('/bible/search', { params: { query, translation } });
     return data;
   }
 };
 
+// Saints API
+export const saintsAPI = {
+  getAll: async (tradition?: string): Promise<SaintSummary[]> => {
+    const { data } = await api.get<SaintSummary[]>('/saints', { params: { tradition } });
+    return data;
+  },
+
+  getById: async (id: string): Promise<Saint> => {
+    const { data } = await api.get<Saint>(`/saints/${id}`);
 // Daily Content API
 export const dailyAPI = {
   getDailyContent: async (denomination?: string, date?: string): Promise<DailyContent> => {

@@ -10,6 +10,7 @@ import PrayersPage from './pages/PrayersPage';
 import HymnsPage from './pages/HymnsPage';
 import RemindersPage from './pages/RemindersPage';
 import ProfilePage from './pages/ProfilePage';
+import SaintsPage from './pages/SaintsPage';
 import './App.css';
 
 const queryClient = new QueryClient({
@@ -44,6 +45,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="bible" element={<BiblePage />} />
             <Route path="prayers" element={<PrayersPage />} />
+            <Route path="saints" element={<SaintsPage />} />
             <Route path="hymns" element={<HymnsPage />} />
             <Route path="reminders" element={<RemindersPage />} />
             <Route path="profile" element={<ProfilePage />} />
