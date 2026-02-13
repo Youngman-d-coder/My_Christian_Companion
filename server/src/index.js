@@ -69,6 +69,7 @@ app.use('/api/bible', require('./routes/bible'));
 app.use('/api/user', require('./routes/user'));
 app.use('/api/saints', require('./routes/saints'));
 app.use('/api/daily', require('./routes/daily'));
+app.use('/api/nigerian', require('./routes/nigerian'));
 
 // Health check
 app.get('/health', (req, res) => {

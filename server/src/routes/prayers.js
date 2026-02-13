@@ -279,7 +279,144 @@ const prayerLibrary = {
       title: 'Serenity Prayer',
       text: 'God, grant me the serenity to accept the things I cannot change, courage to change the things I can, and wisdom to know the difference. Living one day at a time, enjoying one moment at a time, accepting hardship as a pathway to peace. Amen.'
     }
-  ]
+  ],
+  nigerian: {
+    yoruba: [
+      {
+        id: 'adura-owuro-yoruba',
+        title: 'Adura Owuro (Morning Prayer)',
+        text: 'Olorun Oba, mo dupe fun O fun oorun tuntun yi. E je ki ojo oni yi dara fun mi. Fi agbara Re ran mi lowo lati se ohun ti o dara ni oju Re. Amin.',
+        language: 'Yoruba'
+      },
+      {
+        id: 'orin-iyin-yoruba',
+        title: 'Orin Iyin (Prayer of Praise)',
+        text: 'Olorun agbaye, O ni gbogbo ogo. Mo yin O fun ifẹ Re. Mo yin O fun ore-ọfẹ Re. Jesu Kristi, O je Oluwa mi. Emi Mimo, bo le mi. Amin.',
+        language: 'Yoruba'
+      },
+      {
+        id: 'adura-ounje-yoruba',
+        title: 'Adura Fun Ounje (Grace Before Meals)',
+        text: 'Baba Olorun, a dupe fun onje yi ti O fun wa. Je ki o tun ara wa se. Bukun awon to se e ati awon ti a fe. Amin.',
+        language: 'Yoruba'
+      },
+      {
+        id: 'adura-ale-yoruba',
+        title: 'Adura Ale (Evening Prayer)',
+        text: 'Olorun mi, mo dupe fun ojo oni. Dari mi bo loni alẹ. Je ki oorun mi ye mi dara. Gba mi lọwọ ibi gbogbo. Amin.',
+        language: 'Yoruba'
+      }
+    ],
+    igbo: [
+      {
+        id: 'ekpere-ututo-igbo',
+        title: 'Ekpere Ututo (Morning Prayer)',
+        text: 'Chineke nna anyi, Anyi na-ekele Gi maka ubochi ohuru a. Nye anyi ike na amara Gi taa. Ka anyi na-eme ihe ziri ezi n\'anya Gi. Amen.',
+        language: 'Igbo'
+      },
+      {
+        id: 'ekpere-otito-igbo',
+        title: 'Ekpere Otito (Prayer of Praise)',
+        text: 'Chineke Onye okike, I tọrọ mma. Anyi na-eto Gi maka ihunanya Gi. Jesu Kristi, I bu Onyenwe anyi. Mmuo Nso, biakwute anyi. Amen.',
+        language: 'Igbo'
+      },
+      {
+        id: 'ekpere-nri-igbo',
+        title: 'Ekpere Tupu Iri Nri (Grace Before Meals)',
+        text: 'Chineke nna anyi, anyi na-ekele Gi maka nri a. Gozie ya ka o nye anyi ike. Gozie ndi siri ya na ndi anyi huru n\'anya. Amen.',
+        language: 'Igbo'
+      },
+      {
+        id: 'ekpere-anyasi-igbo',
+        title: 'Ekpere Anyasi (Evening Prayer)',
+        text: 'Chineke anyi, anyi na-ekele Gi maka ubochi taa. Chekwaa anyi n\'abali a. Nye anyi ura di mma. Naputa anyi n\'aka ajo mmuo. Amen.',
+        language: 'Igbo'
+      },
+      {
+        id: 'ekpere-maka-nigeria-igbo',
+        title: 'Ekpere Maka Nigeria (Prayer for Nigeria)',
+        text: 'Chineke Onye-nwe-uwa, gozie obodo anyi Nigeria. Nye ndi isi anyi amamihe. Mee ka udo na ihunanya di n\'etiti anyi. Kwado obodo anyi na-eme ka o buru ebe oma. Amen.',
+        language: 'Igbo'
+      }
+    ],
+    hausa: [
+      {
+        id: 'adua-safe-hausa',
+        title: 'Adua Safe (Morning Prayer)',
+        text: 'Ya Ubangiji Allah, na gode maka sabon yini. Ka ba ni karfi da alheri a yau. Ka taimake ni in yi abin da yake daidai a wurinka. Amin.',
+        language: 'Hausa'
+      },
+      {
+        id: 'adua-godiya-hausa',
+        title: 'Adua Ta Godiya (Prayer of Thanksgiving)',
+        text: 'Ya Ubangiji Mahalicci, Kai ne mai girma. Muna godiya gare Ka don soyayyarka. Yesu Almasihu, Kai ne Ubangijinmu. Ruhu Mai Tsarki, zo wurinmu. Amin.',
+        language: 'Hausa'
+      },
+      {
+        id: 'adua-abinci-hausa',
+        title: 'Adua Kafin Ci (Grace Before Meals)',
+        text: 'Ya Allah Ubangijinmu, muna godiya don abincin nan. Ka albarkace shi don ya ba mu karfi. Ka albarkaci wadanda suka shirya shi da wadanda muke so. Amin.',
+        language: 'Hausa'
+      },
+      {
+        id: 'adua-maraice-hausa',
+        title: 'Adua Maraice (Evening Prayer)',
+        text: 'Ya Ubangijinmu, muna godiya don yau. Ka tsare mu a daren nan. Ka ba mu bacci mai dadi. Ka kare mu daga duk sharri. Amin.',
+        language: 'Hausa'
+      },
+      {
+        id: 'adua-nigeria-hausa',
+        title: 'Adua Domin Nijeriya (Prayer for Nigeria)',
+        text: 'Ya Ubangiji Mahaliccinmu, ka albarkaci kasarmu Nijeriya. Ka ba shugabanninmu hikima. Ka sa salama da soyayya tsakaninmu. Ka kara karfafa kasarmu. Amin.',
+        language: 'Hausa'
+      }
+    ],
+    catholic: [
+      {
+        id: 'hail-mary-yoruba',
+        title: 'Kiíní Márìà (Hail Mary - Yoruba)',
+        text: 'Kiíní Márìà, o kún fún oore-ọfẹ́, Olúwa wà pẹ̀lú rẹ. Ìwọ ni a bùkún láàrin obìnrin, àti pé a bùkún èso inú rẹ, Jésù. Márìà mímọ́, Ìyá Ọlọ́run, gbàdúrà fún wa ẹlẹ́ṣẹ̀, nísinsin yìí àti ní wákàtí ikú wa. Àmín.',
+        language: 'Yoruba'
+      },
+      {
+        id: 'our-father-yoruba',
+        title: 'Baba Wa (Our Father - Yoruba)',
+        text: 'Baba wa ti o wa lọrun, kí orúkọ rẹ di mímọ́. Kí ìjọba rẹ dé. Kí a ṣe ìfẹ́ rẹ ní ayé bí a ti ṣe é lọrun. Fún wa ní oúnjẹ wa tí a ní lílò lónìí. Dárí gbèsè wa jì wá, bí àwa ti ṣe ń dárí àwọn tí ó jẹ́ wá ní gbèsè jì. Má jẹ́ kí a bọ́ sínú ìdánwò, ṣùgbọ́n gbà wá lọ́wọ́ ibi. Àmín.',
+        language: 'Yoruba'
+      },
+      {
+        id: 'hail-mary-igbo',
+        title: 'Ekele Maria (Hail Mary - Igbo)',
+        text: 'Ekele Maria, onye juru na amara, Onyenwe anyi no na gi. I bu onye a goziri n\'etiti umu nwaanyi, ihe di n\'afo gi bu onye a goziri, Jesu. Maria di nso, Nne Chineke, kpeere anyi ndi njo ekpere ugbu a na n\'oge onwu anyi. Amen.',
+        language: 'Igbo'
+      },
+      {
+        id: 'our-father-igbo',
+        title: 'Nna Anyi (Our Father - Igbo)',
+        text: 'Nna anyi no n\'igwe, ka e mee ka aha Gi di nso. Ka alaeze Gi bia. Ka e mee uche Gi n\'uwa dika e si eme ya n\'igwe. Nye anyi taa nri anyi ga-eri taa. Gbaghara anyi mmehie anyi dika anyi si agbaghara ndi mehiere anyị. Ekwela ka anyi danye n\'onwunwa, kama naputa anyi n\'ihe ojoo. Amen.',
+        language: 'Igbo'
+      },
+      {
+        id: 'hail-mary-hausa',
+        title: 'Gaisuwar Maryama (Hail Mary - Hausa)',
+        text: 'Gaisuwa Maryama, cike da alheri, Ubangiji yana tare da ke. Albarkaciya ce a cikin mata, kuma albarka ga haifuwarka, Yesu. Maryama mai tsarki, Uwar Allah, yi adua domin mu masu zunubi, yanzu da lokacin rasuwarmu. Amin.',
+        language: 'Hausa'
+      },
+      {
+        id: 'our-father-hausa',
+        title: 'Ubanmu (Our Father - Hausa)',
+        text: 'Ubanmu wanda yake cikin sama, sunanka ya zama mai tsarki. Mulkinka ya zo. A yi nufinaka a duniya kamar yadda ake yi a sama. Ka ba mu yau abincin da muke bukata. Ka gafarta mana laifofinmu kamar yadda muke gafarta wa wadanda suka yi mana laifi. Kada ka bar mu mu fada cikin gwaji, amma ka tsare mu daga sharri. Amin.',
+        language: 'Hausa'
+      },
+      {
+        id: 'rosary-mysteries-nigeria',
+        title: 'The Holy Rosary Mysteries',
+        text: 'The Joyful Mysteries: The Annunciation, The Visitation, The Nativity, The Presentation, The Finding in the Temple.\n\nThe Luminous Mysteries: The Baptism, The Wedding at Cana, The Proclamation, The Transfiguration, The Institution of the Eucharist.\n\nThe Sorrowful Mysteries: The Agony in the Garden, The Scourging, The Crowning with Thorns, The Carrying of the Cross, The Crucifixion.\n\nThe Glorious Mysteries: The Resurrection, The Ascension, The Descent of the Holy Spirit, The Assumption, The Coronation of Mary.',
+        reference: 'Traditional Catholic devotion practiced widely by Nigerian Catholics',
+        language: 'English'
+      }
+    ]
+  }
 };
 
 // Get all prayers
@@ -296,6 +433,48 @@ router.get('/:denomination', (req, res) => {
   } else {
     res.status(404).json({ error: 'Denomination not found' });
   }
+});
+
+// Get prayers by language
+router.get('/language/:language', (req, res) => {
+  const { language } = req.params;
+  const results = [];
+  
+  // Search through all denominations
+  Object.entries(prayerLibrary).forEach(([denominationKey, denomination]) => {
+    if (Array.isArray(denomination)) {
+      // Handle flat arrays (like 'common')
+      denomination.forEach(prayer => {
+        if (prayer.language && prayer.language.toLowerCase() === language.toLowerCase()) {
+          results.push({
+            ...prayer,
+            denomination: denominationKey
+          });
+        }
+      });
+    } else {
+      // Handle nested structures (like 'nigerian')
+      Object.entries(denomination).forEach(([categoryKey, prayers]) => {
+        if (Array.isArray(prayers)) {
+          prayers.forEach(prayer => {
+            if (prayer.language && prayer.language.toLowerCase() === language.toLowerCase()) {
+              results.push({
+                ...prayer,
+                denomination: denominationKey,
+                category: categoryKey
+              });
+            }
+          });
+        }
+      });
+    }
+  });
+  
+  if (results.length === 0) {
+    return res.status(404).json({ error: 'No prayers found for the specified language' });
+  }
+  
+  res.json(results);
 });
 
 module.exports = router;

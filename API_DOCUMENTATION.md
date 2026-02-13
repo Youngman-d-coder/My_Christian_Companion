@@ -311,4 +311,172 @@ Returns the API health status.
 
 ---
 
+## Nigerian Liturgical Resources
+
+### Get All Nigerian Resources
+**GET** `/api/nigerian`
+
+Returns an overview of all available Nigerian liturgical resources.
+
+**Response (200):**
+```json
+{
+  "orderOfMass": {
+    "description": "Structure and prayers of the Catholic Mass",
+    "endpoint": "/api/nigerian/mass/order"
+  },
+  "dailyReadings": {
+    "description": "Information about daily Mass readings",
+    "endpoint": "/api/nigerian/readings/daily"
+  },
+  "sundayReadings": {
+    "description": "Structure of Sunday Mass readings",
+    "endpoint": "/api/nigerian/readings/sunday"
+  },
+  "breviary": {
+    "description": "Liturgy of the Hours (Divine Office)",
+    "endpoint": "/api/nigerian/breviary"
+  },
+  "missal": {
+    "description": "Information about the Roman Missal",
+    "endpoint": "/api/nigerian/missal"
+  }
+}
+```
+
+### Get Order of Mass
+**GET** `/api/nigerian/mass/order?language=english`
+
+Returns the complete Order of Mass structure with prayers and responses.
+
+**Query Parameters:**
+- `language` (optional): Language for the Order of Mass (default: "english")
+
+**Response (200):**
+```json
+{
+  "introductoryRites": {
+    "title": "INTRODUCTORY RITES",
+    "steps": [...]
+  },
+  "liturgyOfTheWord": {
+    "title": "LITURGY OF THE WORD",
+    "steps": [...]
+  },
+  "liturgyOfTheEucharist": {
+    "title": "LITURGY OF THE EUCHARIST",
+    "steps": [...]
+  },
+  "concludingRites": {
+    "title": "CONCLUDING RITES",
+    "steps": [...]
+  }
+}
+```
+
+### Get Daily Readings Information
+**GET** `/api/nigerian/readings/daily`
+
+Returns information about where to find daily Mass readings for Nigerian Catholics.
+
+**Response (200):**
+```json
+{
+  "description": "Daily Mass readings for Nigerian Catholics follow the Roman Catholic Lectionary cycle used worldwide.",
+  "sources": [
+    {
+      "name": "Catholic Bishops' Conference of Nigeria (CBCN)",
+      "website": "https://cbcn-ng.org",
+      "description": "Official website of the Catholic Bishops' Conference of Nigeria"
+    }
+  ],
+  "note": "Nigerian Catholics follow the same lectionary cycle as the universal Catholic Church..."
+}
+```
+
+### Get Sunday Readings Structure
+**GET** `/api/nigerian/readings/sunday`
+
+Returns the structure of Sunday Mass readings.
+
+### Get Breviary (Liturgy of the Hours)
+**GET** `/api/nigerian/breviary`
+
+Returns information about the Liturgy of the Hours (Divine Office/Breviary).
+
+### Get Missal Information
+**GET** `/api/nigerian/missal`
+
+Returns information about the Roman Missal and Nigerian adaptations.
+
+---
+
+## Hymns - Language Filtering
+
+### Get Hymns by Language
+**GET** `/api/hymns/language/:language`
+
+Returns all hymns in a specific language.
+
+**Example:** `/api/hymns/language/yoruba`
+
+**Response (200):**
+```json
+[
+  {
+    "id": "jesu-l'oluwa",
+    "title": "Jesu L'Oluwa (Jesus is Lord)",
+    "author": "Traditional Nigerian",
+    "year": 1900,
+    "denomination": "All",
+    "category": "Nigerian - Yoruba",
+    "language": "Yoruba",
+    "firstLine": "Jesu l'oluwa, O je k'a yin O",
+    "description": "Traditional Yoruba hymn proclaiming Jesus as Lord...",
+    "category": "nigerian",
+    "subCategory": "yoruba"
+  }
+]
+```
+
+**Available Languages:**
+- `yoruba` - Yoruba language hymns
+- `igbo` - Igbo language hymns
+- `hausa` - Hausa language hymns
+- `english` - English language hymns (when specified)
+- `nigerian pidgin` - Nigerian Pidgin English hymns
+
+---
+
+## Prayers - Language Filtering
+
+### Get Prayers by Language
+**GET** `/api/prayers/language/:language`
+
+Returns all prayers in a specific language.
+
+**Example:** `/api/prayers/language/igbo`
+
+**Response (200):**
+```json
+[
+  {
+    "id": "ekpere-ututo-igbo",
+    "title": "Ekpere Ututo (Morning Prayer)",
+    "text": "Chineke nna anyi, Anyi na-ekele Gi maka ubochi ohuru a...",
+    "language": "Igbo",
+    "denomination": "nigerian",
+    "category": "igbo"
+  }
+]
+```
+
+**Available Languages:**
+- `yoruba` - Yoruba language prayers
+- `igbo` - Igbo language prayers
+- `hausa` - Hausa language prayers
+- `english` - English language prayers (when specified)
+
+---
+
 🔒 = Requires authentication
