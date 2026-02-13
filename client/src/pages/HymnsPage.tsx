@@ -21,11 +21,6 @@ export default function HymnsPage() {
   const [selectedHymn, setSelectedHymn] = useState<Hymn | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const { data: allHymns } = useQuery({
-    queryKey: ['hymns'],
-    queryFn: hymnsAPI.getAll
-  });
-
   const { data: categoryHymns } = useQuery({
     queryKey: ['hymns', selectedCategory],
     queryFn: () => hymnsAPI.getByCategory(selectedCategory),
@@ -135,14 +130,16 @@ export default function HymnsPage() {
           </div>
 
           <div className="hymns-content">
-            {categoryHymns && Object.entries(categoryHymns).map(([subCategory, hymns]: [string, any]) => (
+            {categoryHymns && Object.entries(categoryHymns).map(([subCategory, hymns]) => {
+              const hymnArray = Array.isArray(hymns) ? hymns : [];
+              return (
               <div key={subCategory} className="hymn-section">
                 <h2>{subCategory.charAt(0).toUpperCase() + subCategory.slice(1)} Hymns</h2>
                 <div className="hymns-grid">
-                  {hymns.map((hymn: Hymn) => renderHymnCard(hymn))}
+                  {hymnArray.map((hymn: Hymn) => renderHymnCard(hymn))}
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </>
       ) : (
