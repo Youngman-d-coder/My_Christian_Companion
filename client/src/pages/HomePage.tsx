@@ -18,15 +18,22 @@ export default function HomePage() {
         setDailyContent(content);
       } catch (error) {
         console.error('Error fetching daily content:', error);
-        // Set a fallback verse if API fails
+        // Set a complete fallback content if API fails
         setDailyContent({
+          date: new Date().toISOString(),
+          denomination: user?.denomination || 'other',
+          liturgicalInfo: {
+            season: 'Ordinary Time',
+            color: 'Green',
+            description: 'The regular season of growth in faith',
+            focus: 'Growing in discipleship and Christian living',
+            feast: null
+          },
           verse: {
             text: 'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.',
             reference: 'John 3:16 (NIV)'
           },
-          liturgicalInfo: {
-            season: 'Ordinary Time'
-          }
+          quote: 'God is love, and whoever abides in love abides in God, and God abides in him.'
         });
       } finally {
         setLoading(false);

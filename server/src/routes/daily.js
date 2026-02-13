@@ -389,6 +389,9 @@ function getSeasonalQuote(season, feast, denomination) {
 // API endpoint to get daily content
 router.get('/', (req, res) => {
   try {
+    // Default to 'other' denomination which provides universal Christian content
+    // Note: 'other', 'anglican', and unmatched denominations receive universal
+    // feasts (Christmas, Easter, etc.) but not denomination-specific ones
     const { denomination = 'other', date } = req.query;
     const targetDate = date ? new Date(date) : new Date();
     
