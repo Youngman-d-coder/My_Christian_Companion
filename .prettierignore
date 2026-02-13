@@ -1,0 +1,13 @@
+node_modules
+dist
+build
+coverage
+.next
+.vscode
+*.log
+.env
+.env.*
+!.env.example
+logs
+*.lock
+package-lock.json

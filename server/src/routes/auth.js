@@ -7,9 +7,11 @@ const User = require('../models/User');
 
 // Register
 router.post('/register', [
-  body('email').isEmail(),
-  body('password').isLength({ min: 6 }),
-  body('name').notEmpty()
+  body('email').isEmail().withMessage('Valid email is required'),
+  body('password')
+    .isLength({ min: 8 }).withMessage('Password must be at least 8 characters')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/).withMessage('Password must contain uppercase, lowercase, and number'),
+  body('name').notEmpty().trim().withMessage('Name is required')
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -39,9 +41,14 @@ router.post('/register', [
     await user.save();
 
     // Generate token
+    if (!process.env.JWT_SECRET) {
+      console.error('CRITICAL: JWT_SECRET is not set in environment variables');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
     const token = jwt.sign(
       { userId: user._id },
-      process.env.JWT_SECRET || 'your-secret-key',
+      process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 
@@ -86,9 +93,14 @@ router.post('/login', [
     }
 
     // Generate token
+    if (!process.env.JWT_SECRET) {
+      console.error('CRITICAL: JWT_SECRET is not set in environment variables');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
     const token = jwt.sign(
       { userId: user._id },
-      process.env.JWT_SECRET || 'your-secret-key',
+      process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 
