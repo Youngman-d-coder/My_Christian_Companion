@@ -1,9 +1,39 @@
 import { useAuthStore } from '../store';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { dailyAPI } from '../services/api';
 import './HomePage.css';
 
 export default function HomePage() {
   const user = useAuthStore((state) => state.user);
+  const [dailyContent, setDailyContent] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDailyContent = async () => {
+      try {
+        setLoading(true);
+        const content = await dailyAPI.getDailyContent(user?.denomination);
+        setDailyContent(content);
+      } catch (error) {
+        console.error('Error fetching daily content:', error);
+        // Set a fallback verse if API fails
+        setDailyContent({
+          verse: {
+            text: 'For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.',
+            reference: 'John 3:16 (NIV)'
+          },
+          liturgicalInfo: {
+            season: 'Ordinary Time'
+          }
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDailyContent();
+  }, [user?.denomination]);
 
   const quickActions = [
     { title: 'Read Bible', icon: '📖', link: '/bible', color: '#4299e1' },
@@ -85,14 +115,44 @@ export default function HomePage() {
       </section>
 
       <section className="verse-of-day">
-        <h2>Verse of the Day</h2>
-        <div className="verse-card">
-          <p className="verse-text">
-            "For God so loved the world that he gave his one and only Son, that whoever believes in
-            him shall not perish but have eternal life."
-          </p>
-          <p className="verse-reference">— John 3:16 (NIV)</p>
-        </div>
+        <h2>
+          {dailyContent?.liturgicalInfo?.feast
+            ? `${dailyContent.liturgicalInfo.feast.name} - Daily Verse`
+            : dailyContent?.liturgicalInfo?.season
+            ? `${dailyContent.liturgicalInfo.season} - Daily Verse`
+            : 'Verse of the Day'}
+        </h2>
+        {loading ? (
+          <div className="verse-card">
+            <p className="verse-text">Loading...</p>
+          </div>
+        ) : (
+          <>
+            <div className="verse-card">
+              <p className="verse-text">"{dailyContent?.verse?.text}"</p>
+              <p className="verse-reference">— {dailyContent?.verse?.reference}</p>
+            </div>
+            {dailyContent?.liturgicalInfo && (
+              <div className="liturgical-info">
+                <p>
+                  <strong>Liturgical Season:</strong> {dailyContent.liturgicalInfo.season}
+                  {dailyContent.liturgicalInfo.color && (
+                    <span> (Liturgical Color: {dailyContent.liturgicalInfo.color})</span>
+                  )}
+                </p>
+                {dailyContent.liturgicalInfo.description && (
+                  <p><em>{dailyContent.liturgicalInfo.description}</em></p>
+                )}
+              </div>
+            )}
+            {dailyContent?.quote && (
+              <div className="daily-quote">
+                <h3>Spiritual Reflection</h3>
+                <p className="quote-text">{dailyContent.quote}</p>
+              </div>
+            )}
+          </>
+        )}
       </section>
 
       <section className="features-overview">

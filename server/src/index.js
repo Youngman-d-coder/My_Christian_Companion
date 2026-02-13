@@ -17,6 +17,7 @@ app.use('/api/prayers', require('./routes/prayers'));
 app.use('/api/reminders', require('./routes/reminders'));
 app.use('/api/bible', require('./routes/bible'));
 app.use('/api/user', require('./routes/user'));
+app.use('/api/daily', require('./routes/daily'));
 
 // Health check
 app.get('/health', (req, res) => {

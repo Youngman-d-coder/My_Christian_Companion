@@ -129,4 +129,15 @@ export const bibleAPI = {
   }
 };
 
+// Daily Content API
+export const dailyAPI = {
+  getDailyContent: async (denomination?: string, date?: string): Promise<any> => {
+    const params: any = {};
+    if (denomination) params.denomination = denomination;
+    if (date) params.date = date;
+    const { data } = await api.get('/daily', { params });
+    return data;
+  }
+};
+
 export default api;
