@@ -10,7 +10,8 @@ import type {
   AuthResponse,
   LoginCredentials,
   RegisterCredentials,
-  Bookmark
+  Bookmark,
+  DailyContent
 } from '../types';
 
 const API_BASE = import.meta.env.VITE_API_URL || '/api';
@@ -150,6 +151,17 @@ export const bibleAPI = {
 
   search: async (query: string, translation: string = 'KJV'): Promise<any> => {
     const { data } = await api.get('/bible/search', { params: { query, translation } });
+    return data;
+  }
+};
+
+// Daily Content API
+export const dailyAPI = {
+  getDailyContent: async (denomination?: string, date?: string): Promise<DailyContent> => {
+    const params: Record<string, string> = {};
+    if (denomination) params.denomination = denomination;
+    if (date) params.date = date;
+    const { data } = await api.get<DailyContent>('/daily', { params });
     return data;
   }
 };

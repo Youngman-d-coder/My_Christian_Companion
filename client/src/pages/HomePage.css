@@ -124,6 +124,46 @@
   opacity: 0.9;
 }
 
+.liturgical-info {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.liturgical-info p {
+  margin: 0.5rem 0;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.liturgical-info strong {
+  color: #2d3748;
+}
+
+.daily-quote {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #667eea;
+}
+
+.daily-quote h3 {
+  color: #667eea;
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+}
+
+.quote-text {
+  color: #4a5568;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

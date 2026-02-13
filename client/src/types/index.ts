@@ -100,3 +100,23 @@ export interface RegisterCredentials {
   name: string;
   denomination?: string;
 }
+
+export interface DailyContent {
+  date: string;
+  denomination: string;
+  liturgicalInfo: {
+    season: string;
+    color: string;
+    description: string;
+    focus: string;
+    feast: {
+      name: string;
+      type: string;
+    } | null;
+  };
+  verse: {
+    text: string;
+    reference: string;
+  };
+  quote: string;
+}
