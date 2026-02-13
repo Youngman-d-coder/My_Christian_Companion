@@ -399,7 +399,7 @@ const prayerLibrary = {
       {
         id: 'hail-mary-hausa',
         title: 'Gaisuwar Maryama (Hail Mary - Hausa)',
-        text: 'Gaisuwa Maryama, cike da alheri, Ubangiji yana tare da ke. Albarkaciya ce a cikin mata, kuma albarka ga haifuwarka, Yesu. Maryama mai tsarki, Uwar Allah, yi adua domainmu masu zunubi, yanzu da lokacin rasuwarmu. Amin.',
+        text: 'Gaisuwa Maryama, cike da alheri, Ubangiji yana tare da ke. Albarkaciya ce a cikin mata, kuma albarka ga haifuwarka, Yesu. Maryama mai tsarki, Uwar Allah, yi adua domin mu masu zunubi, yanzu da lokacin rasuwarmu. Amin.',
         language: 'Hausa'
       },
       {

@@ -471,7 +471,7 @@ const hymnLibrary = {
       },
       {
         id: 'ka-anyi-kelue',
-        title: 'Ka Anyi Kèlue Chineke (Let Us Praise God)',
+        title: 'Ka Anyi Kelue Chineke (Let Us Praise God)',
         author: 'Traditional Nigerian',
         year: 1925,
         denomination: 'All',
@@ -600,7 +600,7 @@ const hymnLibrary = {
         language: 'Igbo/English',
         youtubeLink: 'https://www.youtube.com/watch?v=fIHjh9vMCxU',
         lyricsLink: '',
-        firstLine: 'Nara, nara ekele mo',
+        firstLine: 'Nara, nara ekele m',
         description: 'Energetic Nigerian praise song offering worship to God.'
       }
     ]
