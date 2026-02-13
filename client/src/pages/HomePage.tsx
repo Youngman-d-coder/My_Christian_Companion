@@ -80,7 +80,9 @@ export default function HomePage() {
   return (
     <div className="home-page">
       <section className="hero-section">
-        <h1 className="hero-title">Welcome, {user?.name}! ✝</h1>
+        <h1 className="hero-title">
+          Welcome, {user?.name}! <span aria-hidden="true">✝</span>
+        </h1>
         <p className="hero-subtitle">
           Your spiritual companion for daily devotions, Bible reading, and prayer
         </p>
@@ -95,8 +97,9 @@ export default function HomePage() {
               to={action.link}
               className="action-card"
               style={{ borderTopColor: action.color }}
+              aria-label={action.title}
             >
-              <div className="action-icon" style={{ background: action.color }}>
+              <div className="action-icon" style={{ background: action.color }} aria-hidden="true">
                 {action.icon}
               </div>
               <h3>{action.title}</h3>
@@ -168,11 +171,11 @@ export default function HomePage() {
         <h2>App Features</h2>
         <div className="features-grid">
           <div className="feature-item">
-            <h3>📖 Complete Bible</h3>
+            <h3><span aria-hidden="true">📖</span> Complete Bible</h3>
             <p>Access all Bible translations with offline support</p>
           </div>
           <div className="feature-item">
-            <h3>🙏 Prayer Library</h3>
+            <h3><span aria-hidden="true">🙏</span> Prayer Library</h3>
             <p>Comprehensive prayers for all Christian denominations</p>
           </div>
           <div className="feature-item">
@@ -184,15 +187,15 @@ export default function HomePage() {
             <p>Never miss your daily prayers and devotions</p>
           </div>
           <div className="feature-item">
-            <h3>☁️ Cloud Sync</h3>
+            <h3><span aria-hidden="true">☁️</span> Cloud Sync</h3>
             <p>Your bookmarks and progress synced across devices</p>
           </div>
           <div className="feature-item">
-            <h3>📱 Works Offline</h3>
+            <h3><span aria-hidden="true">📱</span> Works Offline</h3>
             <p>Full functionality even without internet</p>
           </div>
           <div className="feature-item">
-            <h3>✝️ Multi-Denomination</h3>
+            <h3><span aria-hidden="true">✝️</span> Multi-Denomination</h3>
             <p>Support for Catholic, Protestant, Orthodox, and more</p>
           </div>
         </div>

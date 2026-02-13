@@ -1,3 +1,14 @@
+/**
+ * Global Styles for Christian Companion Application
+ * 
+ * Accessibility Features (WCAG 2.1 AA):
+ * - Visible focus indicators for keyboard navigation
+ * - Skip-to-main-content link for screen readers
+ * - Screen reader only utility class (.sr-only)
+ * - High contrast focus styles
+ * - Proper semantic HTML structure
+ */
+
 * {
   box-sizing: border-box;
 }
@@ -66,5 +77,42 @@ a:hover {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* Accessibility: Visible focus styles */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Skip to main content link for keyboard navigation */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-main:focus {
+  top: 0;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 

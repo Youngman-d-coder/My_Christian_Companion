@@ -33,12 +33,12 @@ export default function RegisterPage() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1 className="auth-title">✝ Christian Companion</h1>
+        <h1 className="auth-title"><span aria-hidden="true">✝</span> Christian Companion</h1>
         <h2 className="auth-subtitle">Create Account</h2>
         
-        {error && <div className="error-message">{error}</div>}
+        {error && <div id="error-message" className="error-message" role="alert" aria-live="assertive">{error}</div>}
         
-        <form onSubmit={handleSubmit} className="auth-form">
+        <form onSubmit={handleSubmit} className="auth-form" aria-label="Registration form">
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
             <input
@@ -48,6 +48,8 @@ export default function RegisterPage() {
               onChange={(e) => setName(e.target.value)}
               required
               placeholder="John Doe"
+              autoComplete="name"
+              aria-describedby={error ? 'error-message' : undefined}
             />
           </div>
           
@@ -60,6 +62,8 @@ export default function RegisterPage() {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="your@email.com"
+              autoComplete="email"
+              aria-describedby={error ? 'error-message' : undefined}
             />
           </div>
           
@@ -73,6 +77,8 @@ export default function RegisterPage() {
               required
               placeholder="••••••••"
               minLength={6}
+              autoComplete="new-password"
+              aria-describedby={error ? 'error-message' : undefined}
             />
           </div>
           
@@ -91,7 +97,7 @@ export default function RegisterPage() {
             </select>
           </div>
           
-          <button type="submit" className="btn-primary" disabled={loading}>
+          <button type="submit" className="btn-primary" disabled={loading} aria-busy={loading}>
             {loading ? 'Creating account...' : 'Create Account'}
           </button>
         </form>
