@@ -1,0 +1,165 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: #2d3748;
+  margin: 0 0 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #718096;
+  margin: 0;
+}
+
+.quick-actions h2,
+.denomination-section h2,
+.verse-of-day h2,
+.features-overview h2 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.action-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.action-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.action-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #2d3748;
+}
+
+.denom-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.denom-info h3 {
+  color: #667eea;
+  margin: 0 0 1rem;
+}
+
+.denom-info ul {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+}
+
+.denom-info li {
+  padding: 0.5rem 0;
+  color: #4a5568;
+}
+
+.denom-info p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.verse-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.verse-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin: 0 0 1rem;
+  font-style: italic;
+}
+
+.verse-reference {
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+  color: #2d3748;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.feature-item p {
+  color: #718096;
+  margin: 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .actions-grid,
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
