@@ -14,13 +14,6 @@ const logger = winston.createLogger({
   format: logFormat,
   defaultMeta: { service: 'christian-companion-api' },
   transports: [
-    // Write all logs to console
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-      )
-    }),
     // Write all logs with level 'error' to error.log
     new winston.transports.File({ 
       filename: 'logs/error.log', 
@@ -37,14 +30,12 @@ const logger = winston.createLogger({
   ]
 });
 
-// If we're not in production, log to the console with more detail
-if (process.env.NODE_ENV !== 'production') {
-  logger.add(new winston.transports.Console({
-    format: winston.format.combine(
-      winston.format.colorize(),
-      winston.format.simple()
-    )
-  }));
-}
+// Add console transport with appropriate formatting
+logger.add(new winston.transports.Console({
+  format: winston.format.combine(
+    winston.format.colorize(),
+    winston.format.simple()
+  )
+}));
 
 module.exports = logger;
