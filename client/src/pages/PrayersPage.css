@@ -1,0 +1,245 @@
+.prayers-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.prayers-header {
+  text-align: center;
+}
+
+.prayers-header h1 {
+  color: #2d3748;
+  margin: 0 0 0.5rem;
+}
+
+.prayers-header p {
+  color: #718096;
+  margin: 0;
+}
+
+.denomination-tabs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.denom-tab {
+  padding: 0.875rem 1.5rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.denom-tab:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+}
+
+.denom-tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.denom-icon {
+  font-size: 1.3rem;
+}
+
+.prayers-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.prayer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.prayer-section h2 {
+  color: #2d3748;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.prayer-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.prayer-card {
+  padding: 1.5rem;
+  background: #f7fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.prayer-card:hover {
+  border-color: #667eea;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.prayer-card h3 {
+  color: #2d3748;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.prayer-card p {
+  color: #718096;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.prayer-reference {
+  font-style: italic;
+}
+
+.rosary-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.rosary-card {
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.rosary-card:hover {
+  transform: translateY(-4px);
+}
+
+.rosary-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.rosary-card p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.mysteries h3,
+.rosary-prayers h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.mystery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.mystery-card {
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-left: 4px solid #667eea;
+  border-radius: 8px;
+}
+
+.mystery-card h4 {
+  color: #667eea;
+  margin: 0 0 1rem;
+}
+
+.mystery-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #4a5568;
+}
+
+.mystery-card li {
+  padding: 0.25rem 0;
+}
+
+.prayer-detail {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-button {
+  padding: 0.75rem 1.5rem;
+  background: #e2e8f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  transition: background 0.2s;
+}
+
+.back-button:hover {
+  background: #cbd5e0;
+}
+
+.prayer-detail h2 {
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.prayer-text {
+  background: #f7fafc;
+  padding: 2rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  line-height: 1.8;
+  color: #2d3748;
+  font-size: 1.1rem;
+  white-space: pre-line;
+}
+
+.prayer-instructions {
+  background: #f7fafc;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+}
+
+.prayer-instructions pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+  line-height: 1.8;
+  color: #2d3748;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .denomination-tabs {
+    flex-direction: column;
+  }
+
+  .prayer-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .mystery-grid {
+    grid-template-columns: 1fr;
+  }
+}
