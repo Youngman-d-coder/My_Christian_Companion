@@ -70,6 +70,33 @@ export default function PrayersPage() {
                   {denomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
                 </div>
 
+                {denomPrayers.saints && (
+                  <>
+                    <h2>Prayers to Saints</h2>
+                    <div className="prayer-cards">
+                      {denomPrayers.saints.map((prayer: any) => renderPrayerCard(prayer))}
+                    </div>
+                  </>
+                )}
+
+                {denomPrayers.litanies && (
+                  <>
+                    <h2>Litanies</h2>
+                    <div className="prayer-cards">
+                      {denomPrayers.litanies.map((prayer: any) => renderPrayerCard(prayer))}
+                    </div>
+                  </>
+                )}
+
+                {denomPrayers.devotional && (
+                  <>
+                    <h2>Devotional Prayers</h2>
+                    <div className="prayer-cards">
+                      {denomPrayers.devotional.map((prayer: any) => renderPrayerCard(prayer))}
+                    </div>
+                  </>
+                )}
+
                 {denomPrayers.rosary && (
                   <>
                     <h2>The Holy Rosary</h2>
