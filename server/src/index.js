@@ -22,7 +22,7 @@ if (process.env.NODE_ENV !== 'test') {
         defaultSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'"],
         scriptSrc: ["'self'"],
-        imgSrc: ["'self'", "data:", "https:"],
+        imgSrc: ["'self'", 'data:', 'https:'],
         connectSrc: ["'self'"],
         fontSrc: ["'self'"],
         objectSrc: ["'none'"],
@@ -65,7 +65,7 @@ const allowedOrigins = [
 const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
+    if (!origin) {return callback(null, true);}
     
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
