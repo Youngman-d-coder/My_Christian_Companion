@@ -4,12 +4,35 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const rateLimit = require('express-rate-limit');
 const compression = require('compression');
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
 const logger = require('./utils/logger');
 const errorHandler = require('./middleware/errorHandler');
 
 dotenv.config();
 
 const app = express();
+
+// Security headers with helmet
+// Disable in test environment to avoid conflicts with test setup
+if (process.env.NODE_ENV !== 'test') {
+  app.use(helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: ["'self'"],
+        imgSrc: ["'self'", "data:", "https:"],
+        connectSrc: ["'self'"],
+        fontSrc: ["'self'"],
+        objectSrc: ["'none'"],
+        mediaSrc: ["'self'"],
+        frameSrc: ["'none'"],
+      },
+    },
+    crossOriginEmbedderPolicy: false,
+  }));
+}
 
 // Compression middleware
 app.use(compression());
@@ -60,6 +83,16 @@ app.use(cors(corsOptions));
 app.use(express.json({ limit: '10mb' }));
 app.use(limiter);
 
+// Data sanitization against NoSQL injection (disable in test mode to avoid conflicts)
+if (process.env.NODE_ENV !== 'test') {
+  app.use(mongoSanitize({
+    replaceWith: '_',
+    onSanitize: ({ req, key }) => {
+      logger.warn(`Sanitized request from ${req.ip}: removed key "${key}"`);
+    },
+  }));
+}
+
 // Routes
 app.use('/api/auth', authLimiter, require('./routes/auth'));
 app.use('/api/prayers', require('./routes/prayers'));
@@ -97,6 +130,11 @@ const connectDB = async () => {
       await mongoose.connect(process.env.MONGODB_URI);
       logger.info('MongoDB connected successfully');
     } else {
+      // In production, MongoDB is required
+      if (process.env.NODE_ENV === 'production') {
+        logger.error('CRITICAL: MongoDB URI is required in production');
+        throw new Error('MongoDB URI is required in production environment');
+      }
       logger.warn('MongoDB URI not provided, running without database');
     }
   } catch (error) {
