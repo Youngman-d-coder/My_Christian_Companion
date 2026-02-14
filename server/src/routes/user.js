@@ -3,6 +3,7 @@ const router = express.Router();
 const { body, param, validationResult } = require('express-validator');
 const auth = require('../middleware/auth');
 const User = require('../models/User');
+const logger = require('../utils/logger');
 
 // Validation middleware
 const validateRequest = (req, res, next) => {
@@ -22,7 +23,7 @@ router.get('/profile', auth, async (req, res) => {
     }
     res.json(user);
   } catch (error) {
-    console.error('Error fetching profile:', error);
+    logger.error('Error fetching profile:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -43,7 +44,7 @@ router.put('/preferences', auth, [
     
     res.json(user);
   } catch (error) {
-    console.error('Error updating preferences:', error);
+    logger.error('Error updating preferences:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -67,7 +68,7 @@ router.post('/bookmarks', auth, [
     
     res.json(user.bookmarks);
   } catch (error) {
-    console.error('Error adding bookmark:', error);
+    logger.error('Error adding bookmark:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -86,7 +87,7 @@ router.delete('/bookmarks/:bookmarkId', auth, [
     
     res.json(user.bookmarks);
   } catch (error) {
-    console.error('Error removing bookmark:', error);
+    logger.error('Error removing bookmark:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -115,7 +116,7 @@ router.post('/history', auth, [
     
     res.json(user.readingHistory);
   } catch (error) {
-    console.error('Error adding to history:', error);
+    logger.error('Error adding to history:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });

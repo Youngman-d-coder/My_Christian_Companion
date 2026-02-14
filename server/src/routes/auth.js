@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 const User = require('../models/User');
+const logger = require('../utils/logger');
 
 // Register
 router.post('/register', [
@@ -42,7 +43,7 @@ router.post('/register', [
 
     // Generate token
     if (!process.env.JWT_SECRET) {
-      console.error('CRITICAL: JWT_SECRET is not set in environment variables');
+      logger.error('CRITICAL: JWT_SECRET is not set in environment variables');
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
@@ -62,7 +63,7 @@ router.post('/register', [
       }
     });
   } catch (error) {
-    console.error('Registration error:', error);
+    logger.error('Registration error:', error);
     res.status(500).json({ error: 'Server error during registration' });
   }
 });
@@ -94,7 +95,7 @@ router.post('/login', [
 
     // Generate token
     if (!process.env.JWT_SECRET) {
-      console.error('CRITICAL: JWT_SECRET is not set in environment variables');
+      logger.error('CRITICAL: JWT_SECRET is not set in environment variables');
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
@@ -114,7 +115,7 @@ router.post('/login', [
       }
     });
   } catch (error) {
-    console.error('Login error:', error);
+    logger.error('Login error:', error);
     res.status(500).json({ error: 'Server error during login' });
   }
 });

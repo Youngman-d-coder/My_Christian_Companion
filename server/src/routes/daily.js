@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const logger = require('../utils/logger');
 
 // Church calendar data and utilities
 
@@ -426,7 +427,7 @@ router.get('/', (req, res) => {
     
     res.json(response);
   } catch (error) {
-    console.error('Error getting daily content:', error);
+    logger.error('Error getting daily content:', error);
     res.status(500).json({ 
       error: 'Failed to get daily content',
       message: error.message 
