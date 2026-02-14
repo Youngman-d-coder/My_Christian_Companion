@@ -3,6 +3,7 @@ const router = express.Router();
 const { body, param, validationResult } = require('express-validator');
 const auth = require('../middleware/auth');
 const Reminder = require('../models/Reminder');
+const logger = require('../utils/logger');
 
 // Validation middleware
 const validateRequest = (req, res, next) => {
@@ -19,7 +20,7 @@ router.get('/', auth, async (req, res) => {
     const reminders = await Reminder.find({ user: req.user.userId }).sort({ time: 1 });
     res.json(reminders);
   } catch (error) {
-    console.error('Error fetching reminders:', error);
+    logger.error('Error fetching reminders:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -47,7 +48,7 @@ router.post('/', auth, [
     await reminder.save();
     res.status(201).json(reminder);
   } catch (error) {
-    console.error('Error creating reminder:', error);
+    logger.error('Error creating reminder:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -74,7 +75,7 @@ router.put('/:id', auth, [
     
     res.json(reminder);
   } catch (error) {
-    console.error('Error updating reminder:', error);
+    logger.error('Error updating reminder:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -96,7 +97,7 @@ router.delete('/:id', auth, [
     
     res.json({ message: 'Reminder deleted successfully' });
   } catch (error) {
-    console.error('Error deleting reminder:', error);
+    logger.error('Error deleting reminder:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });

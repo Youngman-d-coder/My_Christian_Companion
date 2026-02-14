@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const logger = require('../utils/logger');
 
 // Saints library data - organized with detailed biographies
 const saintsLibrary = [
@@ -340,7 +341,7 @@ router.get('/', (req, res) => {
     
     res.json(saintsSummary);
   } catch (error) {
-    console.error('Error fetching saints:', error);
+    logger.error('Error fetching saints:', error);
     res.status(500).json({ message: 'Error fetching saints data' });
   }
 });
@@ -356,7 +357,7 @@ router.get('/:id', (req, res) => {
     
     res.json(saint);
   } catch (error) {
-    console.error('Error fetching saint:', error);
+    logger.error('Error fetching saint:', error);
     res.status(500).json({ message: 'Error fetching saint data' });
   }
 });

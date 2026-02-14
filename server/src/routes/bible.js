@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
+const logger = require('../utils/logger');
 
 // Bible API endpoints - using api.bible for comprehensive translation support
 const BIBLE_API_KEY = process.env.BIBLE_API_KEY || '';
@@ -25,7 +26,7 @@ router.get('/translations', async (req, res) => {
     
     res.json(translations);
   } catch (error) {
-    console.error('Error fetching translations:', error);
+    logger.error('Error fetching translations:', error);
     res.status(500).json({ error: 'Failed to fetch translations' });
   }
 });
@@ -73,7 +74,7 @@ router.get('/:translation/:book/:chapter', async (req, res) => {
       verses: sampleVerses
     });
   } catch (error) {
-    console.error('Error fetching chapter:', error);
+    logger.error('Error fetching chapter:', error);
     res.status(500).json({ error: 'Failed to fetch chapter' });
   }
 });
@@ -92,7 +93,7 @@ router.get('/:translation/:book/:chapter/:verse', async (req, res) => {
       text: `Sample verse text for ${book} ${chapter}:${verse}`
     });
   } catch (error) {
-    console.error('Error fetching verse:', error);
+    logger.error('Error fetching verse:', error);
     res.status(500).json({ error: 'Failed to fetch verse' });
   }
 });
@@ -113,7 +114,7 @@ router.get('/search', async (req, res) => {
       results: []
     });
   } catch (error) {
-    console.error('Error searching verses:', error);
+    logger.error('Error searching verses:', error);
     res.status(500).json({ error: 'Failed to search verses' });
   }
 });

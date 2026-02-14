@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const logger = require('../utils/logger');
 
 const auth = (req, res, next) => {
   try {
@@ -9,7 +10,7 @@ const auth = (req, res, next) => {
     }
 
     if (!process.env.JWT_SECRET) {
-      console.error('CRITICAL: JWT_SECRET is not set in environment variables');
+      logger.error('CRITICAL: JWT_SECRET is not set in environment variables');
       return res.status(500).json({ error: 'Server configuration error' });
     }
 

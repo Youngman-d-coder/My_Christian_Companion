@@ -12,7 +12,7 @@ import type {
   RegisterCredentials,
   Bookmark,
   SaintSummary,
-  Saint
+  Saint,
   DailyContent
 } from '../types';
 
@@ -166,6 +166,10 @@ export const saintsAPI = {
 
   getById: async (id: string): Promise<Saint> => {
     const { data } = await api.get<Saint>(`/saints/${id}`);
+    return data;
+  }
+};
+
 // Daily Content API
 export const dailyAPI = {
   getDailyContent: async (denomination?: string, date?: string): Promise<DailyContent> => {
