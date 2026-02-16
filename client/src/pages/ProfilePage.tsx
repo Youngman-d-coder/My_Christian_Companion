@@ -36,7 +36,7 @@ export default function ProfilePage() {
   });
 
   const handleSavePreferences = () => {
-    updatePrefsMutation.mutate(preferences);
+    updatePrefsMutation.mutate(preferences as any);
   };
 
   const handleRemoveBookmark = (bookmarkId: string) => {
@@ -57,7 +57,7 @@ export default function ProfilePage() {
           <h1>{displayUser?.name}</h1>
           <p className="profile-email">{displayUser?.email}</p>
           <p className="profile-denom">
-            {displayUser?.denomination.charAt(0).toUpperCase() + displayUser?.denomination.slice(1)}
+            {displayUser?.denomination && (displayUser.denomination.charAt(0).toUpperCase() + displayUser.denomination.slice(1))}
           </p>
         </div>
       </div>
