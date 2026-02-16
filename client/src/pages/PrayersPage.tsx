@@ -25,6 +25,10 @@ export default function PrayersPage() {
     queryFn: () => prayersAPI.getByDenomination(selectedDenomination)
   });
 
+  // Cast to any to handle dynamic prayer structure
+  const typedDenomPrayers = denomPrayers as any;
+  const typedAllPrayers = allPrayers as any;
+
   const denominations: { id: DenominationType; name: string; icon: string }[] = [
     { id: 'catholic', name: 'Catholic', icon: '✝️' },
     { id: 'protestant', name: 'Protestant', icon: '✝️' },
@@ -73,41 +77,41 @@ export default function PrayersPage() {
       <div className="prayers-content" role="tabpanel" id={`${selectedDenomination}-prayers-panel`}>
         {!selectedPrayer ? (
           <div className="prayers-grid">
-            {selectedDenomination === 'catholic' && denomPrayers?.daily && (
+            {selectedDenomination === 'catholic' && typedDenomPrayers?.daily && (
               <div className="prayer-section">
                 <h2>Daily Catholic Prayers</h2>
                 <div className="prayer-cards">
-                  {denomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
+                  {typedDenomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
                 </div>
 
-                {denomPrayers.saints && (
+                {typedDenomPrayers.saints && (
                   <>
                     <h2>Prayers to Saints</h2>
                     <div className="prayer-cards">
-                      {denomPrayers.saints.map((prayer: any) => renderPrayerCard(prayer))}
+                      {typedDenomPrayers.saints.map((prayer: any) => renderPrayerCard(prayer))}
                     </div>
                   </>
                 )}
 
-                {denomPrayers.litanies && (
+                {typedDenomPrayers.litanies && (
                   <>
                     <h2>Litanies</h2>
                     <div className="prayer-cards">
-                      {denomPrayers.litanies.map((prayer: any) => renderPrayerCard(prayer))}
+                      {typedDenomPrayers.litanies.map((prayer: any) => renderPrayerCard(prayer))}
                     </div>
                   </>
                 )}
 
-                {denomPrayers.devotional && (
+                {typedDenomPrayers.devotional && (
                   <>
                     <h2>Devotional Prayers</h2>
                     <div className="prayer-cards">
-                      {denomPrayers.devotional.map((prayer: any) => renderPrayerCard(prayer))}
+                      {typedDenomPrayers.devotional.map((prayer: any) => renderPrayerCard(prayer))}
                     </div>
                   </>
                 )}
 
-                {denomPrayers.rosary && (
+                {typedDenomPrayers.rosary && (
                   <>
                     <h2>The Holy Rosary</h2>
                     <div className="rosary-section">
@@ -123,7 +127,7 @@ export default function PrayersPage() {
                       <div className="mysteries">
                         <h3>Mysteries of the Rosary</h3>
                         <div className="mystery-grid">
-                          {Object.entries(denomPrayers.rosary.mysteries).map(([type, mysteries]: [string, any]) => (
+                          {Object.entries(typedDenomPrayers.rosary.mysteries).map(([type, mysteries]: [string, any]) => (
                             <div key={type} className="mystery-card">
                               <h4>{type.charAt(0).toUpperCase() + type.slice(1)} Mysteries</h4>
                               <ul>
@@ -139,7 +143,7 @@ export default function PrayersPage() {
                       <div className="rosary-prayers">
                         <h3>Rosary Prayers</h3>
                         <div className="prayer-cards">
-                          {Object.entries(denomPrayers.rosary.prayers).map(([key, text]: [string, any]) => (
+                          {Object.entries(typedDenomPrayers.rosary.prayers).map(([key, text]: [string, any]) => (
                             <button 
                               key={key} 
                               className="prayer-card" 
@@ -157,29 +161,29 @@ export default function PrayersPage() {
               </div>
             )}
 
-            {selectedDenomination === 'protestant' && denomPrayers?.daily && (
+            {selectedDenomination === 'protestant' && typedDenomPrayers?.daily && (
               <div className="prayer-section">
                 <h2>Protestant Prayers</h2>
                 <div className="prayer-cards">
-                  {denomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
+                  {typedDenomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
                 </div>
               </div>
             )}
 
-            {selectedDenomination === 'orthodox' && denomPrayers?.daily && (
+            {selectedDenomination === 'orthodox' && typedDenomPrayers?.daily && (
               <div className="prayer-section">
                 <h2>Orthodox Prayers</h2>
                 <div className="prayer-cards">
-                  {denomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
+                  {typedDenomPrayers.daily.map((prayer: any) => renderPrayerCard(prayer))}
                 </div>
               </div>
             )}
 
-            {selectedDenomination === 'common' && allPrayers?.common && (
+            {selectedDenomination === 'common' && typedAllPrayers?.common && (
               <div className="prayer-section">
                 <h2>Common Christian Prayers</h2>
                 <div className="prayer-cards">
-                  {allPrayers.common.map((prayer: any) => renderPrayerCard(prayer))}
+                  {typedAllPrayers.common.map((prayer: any) => renderPrayerCard(prayer))}
                 </div>
               </div>
             )}
